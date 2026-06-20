@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head><meta charset="utf-8">
+  
+
+  <title>Proposta Comercial Fiscal.io - Capa</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/proposta-compacta.css?v=1">
+</head>
+
+<body>
+
+  <section class="pagina pagina-capa">
+
+    <img
+      src="assets/Logo - 246x304.png"
+      class="capa-marca-dagua"
+      alt="">
+
+    <header class="capa-topo">
+
+      <img
+        src="assets/logo-fiscalio-branca.png"
+        class="logo-fiscalio-branca"
+        alt="Fiscal.io">
+
+      <div class="capa-texto">
+        <h1>Proposta<br>Comercial</h1>
+
+        <div class="capa-plano">
+          Fiscal.io Monitor | Plano Enterprise
+        </div>
+      </div>
+
+      <div class="capa-notebook"></div>
+
+    </header>
+
+    <footer class="capa-rodape">
+
+      <strong>Gestão de documentos fiscais</strong>
+
+      <div class="capa-info-proposta">
+        Proposta 00-0xxx | V.01 | xx/xx/2026
+      </div>
+
+      <div class="capa-logo-cliente">
+        <span id="logoClienteTexto">LOGO</span>
+      </div>
+
+    </footer>
+
+  </section>
+
+</body>
+</html>

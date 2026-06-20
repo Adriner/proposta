@@ -1,0 +1,135 @@
+{
+  "basico": {
+    "nome": "Básico",
+    "cnpjs": 10,
+    "usuarios": 1,
+    "usuariosInclusos": 1,
+    "fidelidade": "6 meses",
+    "limites": {
+      "creditoDownloads": "R$ 10",
+      "armazenamento": "10GB",
+      "auditorSped": "15 CNPJ"
+    },
+    "comServico": {
+      "valorLocal": "R$ 245/mês",
+      "valorNuvem": "R$ 380/mês"
+    },
+    "semServico": {
+      "valorLocal": "R$ 189/mês",
+      "valorNuvem": "R$ 189/mês"
+    },
+    "implantacao": "R$ 300,00",
+    "usuarioAdicional": "R$ 85,00",
+    "observacoes": [
+      "Faturamento da primeira mensalidade no aceite desta proposta",
+      "Vencimento das faturas conforme negociação",
+      "Reajuste anual pelo IPCA",
+      "Contrato conforme condição comercial acordada",
+      "Suporte técnico remoto incluso"
+    ],
+    "escopo": [
+      "Monitoramento de até 10 CNPJs",
+      "Downloads ilimitados via Manifestação do Destinatário",
+      "Créditos mensais de downloads sem Ciência da Operação",
+      "Auditoria de arquivos EFD/SPED Fiscal para até 15 CNPJ",
+      "Armazenamento de dados de até 10GB",
+      "Licença de uso para 1 usuário",
+      "Exportação automática de documentos",
+      "Filtros de pesquisa e organização"
+    ],
+    "removerSemServico": [
+      "Relatório Sintético NFSe"
+    ]
+  },
+  "avancado": {
+    "nome": "Avançado",
+    "cnpjs": "Ilimitado",
+    "usuarios": 1,
+    "usuariosInclusos": 1,
+    "fidelidade": "6 meses",
+    "limites": {
+      "creditoDownloads": "R$ 60",
+      "armazenamento": "10GB",
+      "auditorSped": "Ilimitado"
+    },
+    "comServico": {
+      "valorLocal": "",
+      "valorNuvem": "R$ 670/mês"
+    },
+    "semServico": {
+      "valorLocal": "",
+      "valorNuvem": "R$ 345/mês"
+    },
+    "implantacao": "Sem custo",
+    "usuarioAdicional": "R$ 80,00",
+    "observacoes": [
+      "Faturamento conforme condição comercial acordada",
+      "Vencimento das faturas conforme negociação",
+      "Reajuste anual pelo IPCA",
+      "Contrato conforme condição comercial acordada",
+      "Suporte técnico prioritário em horário comercial"
+    ],
+    "escopo": [
+      "CNPJs/CPFs monitorados de forma ilimitada conforme negociação",
+      "Downloads ilimitados via Manifestação do Destinatário",
+      "Créditos mensais de downloads sem Ciência da Operação",
+      "Auditoria de arquivos EFD/SPED Fiscal ilimitada",
+      "Armazenamento de dados de até 10GB",
+      "Suporte técnico prioritário em horário comercial",
+      "Exportação automática de documentos",
+      "Importação de documentos de saída",
+      "Relatórios estratégicos em Excel",
+      "Conectividade com ERPs"
+    ],
+    "removerSemServico": [
+      "Relatórios de Serviço / NFSe"
+    ]
+  },
+  "enterprise": {
+    "nome": "Enterprise",
+    "cnpjs": "Ilimitado",
+    "usuarios": 4,
+    "usuariosInclusos": 4,
+    "fidelidade": "12 meses",
+    "limites": {
+      "creditoDownloads": "R$ 60",
+      "armazenamento": "Ilimitado",
+      "auditorSped": "Ilimitado"
+    },
+    "comServico": {
+      "valorLocal": "R$ 980/mês",
+      "valorNuvem": "R$ 1.370/mês"
+    },
+    "semServico": {
+      "valorLocal": "R$ 980/mês",
+      "valorNuvem": "R$ 1.370/mês"
+    },
+    "implantacao": "R$ 1.500,00",
+    "usuarioAdicional": "R$ 150,00",
+    "observacoes": [
+      "Faturamento da implantação e da primeira parcela na aceitação da proposta",
+      "Vencimento das faturas conforme negociação",
+      "Reajuste anual pelo IPCA",
+      "Contrato de 12 meses",
+      "Suporte técnico remoto incluso"
+    ],
+    "escopo": [
+      "CNPJs/CPFs monitorados de forma ilimitada conforme negociação",
+      "Downloads ilimitados via Manifestação do Destinatário",
+      "Créditos mensais de downloads sem Ciência da Operação",
+      "Auditoria de arquivos EFD/SPED Fiscal ilimitada",
+      "Armazenamento de dados ilimitado",
+      "Notas fiscais de saída via Tag AutXML, e-mail e robô",
+      "Fluxo de etiquetas",
+      "Controle de usuários",
+      "Base de dados aberta / WebSocket APIs",
+      "Integrações personalizadas com outros sistemas",
+      "Servidor exclusivo para comunicação com SEFAZ",
+      "Monitoramento remoto",
+      "Customizações e extensões sob demanda"
+    ],
+    "removerSemServico": [
+      "Relatório NFSe: dados analíticos"
+    ]
+  }
+}

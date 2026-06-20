@@ -1,0 +1,1460 @@
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100%;
+  font-family: 'Poppins', sans-serif;
+  background: #111827;
+}
+
+body {
+  display: block;
+  overflow-y: auto;
+}
+
+/* Visualização em tela */
+.pagina {
+  position: relative;
+  width: 1280px;
+  height: 720px;
+  min-width: 1280px;
+  min-height: 720px;
+  max-width: 1280px;
+  max-height: 720px;
+  margin: 40px auto;
+  overflow: hidden;
+  box-shadow: 0 18px 50px rgba(0,0,0,.35);
+}
+
+/* ================================
+   BASE DA PÁGINA
+================================ */
+
+.pagina {
+  position: relative;
+  width: 1280px;
+  height: 720px;
+  min-width: 1280px;
+  min-height: 720px;
+  max-width: 1280px;
+  max-height: 720px;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  }
+
+/* ================================
+   PÁGINA 1 - CAPA
+================================ */
+
+.pagina-capa {
+  color: #ffffff;
+
+  background:
+    radial-gradient(
+      circle at 92% 8%,
+      rgba(0, 184, 250, 0.15),
+      transparent 20%
+    ),
+
+    linear-gradient(
+      115deg,
+      #003d63 0%,
+      #1a2bc0 50%,
+      #002c92 100%
+    );
+}
+
+/* marca d'água */
+.capa-marca-dagua {
+  position: absolute;
+  left: 66px;
+  top: 66px;
+  width: 480px;
+  height: 520px;
+  object-fit: contain;
+  opacity: 0.052;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* camadas */
+.capa-topo,
+.capa-rodape {
+  position: relative;
+  z-index: 2;
+}
+
+/* área total da capa */
+.capa-topo {
+  position: absolute;
+  inset: 0;
+}
+
+/* logo Fiscal.io */
+.logo-fiscalio-branca {
+  position: absolute;
+  top: 48px;
+  left: 90px;
+  width: 170px;
+  height: auto;
+}
+
+/* bloco do título */
+.capa-texto {
+  position: absolute;
+  left: 90px;
+  top: 245px;
+}
+
+/* título */
+.capa-texto h1 {
+  margin: 0 0 28px 0;
+  font-family: 'Poppins', sans-serif;
+  font-size: 55px;
+  line-height: 1.02;
+  font-weight: 200;
+  letter-spacing: -2px;
+  color: #ffffff;
+}
+
+/* faixa verde */
+.capa-plano {
+  display: inline-flex;
+  align-items: center;
+  min-height: 46px;
+  padding: 8px 22px;
+  border-radius: 999px;
+  background: #00d86f;
+  color: #003448;
+  font-family: 'Poppins', sans-serif;
+  font-size: 23px;
+  line-height: 1;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* notebook */
+.capa-notebook {
+  position: absolute;
+  right: 35px;
+  top: 118px;
+  width: 590px;
+  height: 360px;
+
+  background: url("../assets/notebook.png") no-repeat center;
+  background-size: contain;
+
+  z-index: 4;
+
+  filter:
+    drop-shadow(0 12px 12px rgba(0,0,0,.25))
+    drop-shadow(0 30px 30px rgba(0,0,0,.30))
+    drop-shadow(0 0 40px rgba(0,0,0,.15));
+}
+
+.capa-notebook::before,
+.capa-notebook::after {
+  display: none !important;
+  content: none !important;
+}
+
+.capa-notebook::after {
+  content: "";
+  position: absolute;
+
+  width: 420px;
+  height: 60px;
+
+  left: 90px;
+  bottom: -10px;
+
+  background: rgba(0,0,0,.45);
+
+  border-radius: 50%;
+
+  filter: blur(22px);
+
+  z-index: -1;
+}
+
+
+/* rodapé */
+.capa-rodape {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 1280px;
+  height: 150px;
+}
+
+/* texto rodapé esquerdo */
+.capa-rodape strong {
+  position: absolute;
+  left: 86px;
+  bottom: 65px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 24px;
+  line-height: 1;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+/* dados da proposta */
+.capa-info-proposta {
+  position: absolute;
+  left: 730px;
+  bottom: 70px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #ffffff;
+  white-space: nowrap;
+}
+
+/* caixa logo cliente */
+.capa-logo-cliente {
+  position: absolute;
+  right: 0;
+  bottom: 25px;
+
+  width: 280px;
+  height: 130px;
+
+  background: #f5f5f5;
+
+  border-top-left-radius: 60px;
+  border-bottom-left-radius: 60px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: visible;
+}
+
+#logoClienteImagem{
+  max-width: 220px;
+  max-height: 70px;
+
+  width: auto;
+  height: auto;
+
+  object-fit: contain;
+}
+
+#logoClienteTexto {
+  font-family: 'Poppins', sans-serif;
+  font-size: 26px;
+  font-weight: 900;
+  color: #2b2b2b;
+  text-transform: uppercase;
+}
+
+/* sombra fake para sair bem no PDF */
+.capa-notebook::before {
+  content: "";
+  position: absolute;
+  left: 80px;
+  right: 35px;
+  bottom: 18px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.55);
+  filter: blur(24px);
+  z-index: -1;
+}
+
+/* ================================
+   PÁGINA 2 - QUEM SOMOS
+================================ */
+
+.pagina-quem-somos {
+  font-family: 'Poppins', sans-serif;
+  background:
+    radial-gradient(circle at 78% 18%, rgba(0, 184, 250, 0.18), transparent 26%),
+    linear-gradient(115deg, #005c8c 0%, #1232c7 52%, #002c94 100%);
+  color: #ffffff;
+}
+
+/* imagem esquerda */
+.quem-somos-foto {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 478px;
+  height: 720px;
+  overflow: hidden;
+}
+
+.quem-somos-foto > img:first-child {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+
+
+
+/* conteúdo */
+.quem-somos-conteudo {
+  position: absolute;
+  left: 535px;
+  top: 140px;
+  width: 560px;
+  z-index: 3;
+}
+
+.quem-somos-conteudo h1 {
+  margin: 0 0 56px 0;
+  font-size: 50px;
+  line-height: 1;
+  font-weight: 300;
+  letter-spacing: -1px;
+  color: #ffffff;
+}
+
+.quem-somos-conteudo h1 strong {
+  font-weight: 600;
+}
+
+.quem-somos-conteudo p {
+  margin: 0 0 42px 0;
+  font-size: 20px;
+  line-height: 1.18;
+  font-weight: 300;
+  color: #ffffff;
+}
+
+.quem-somos-conteudo p strong {
+  font-weight: 600;
+}
+
+/* decorativos direita */
+.decor {
+  position: absolute;
+  right: -52px;
+  border-radius: 8px;
+  transform: rotate(-5deg);
+  z-index: 2;
+}
+
+.decor-branco {
+  top: -20px;
+  width: 180px;
+  height: 160px;
+  background: #ffffff;
+}
+
+.decor-verde {
+  top: 220px;
+  width: 155px;
+  height: 250px;
+  background: #06d0a9;
+}
+
+.decor-azul {
+  bottom: -25px;
+  width: 130px;
+  height: 210px;
+  background: #0798c7;
+}
+
+
+
+
+
+/* ================================
+   PÁGINA 3 - ALGUNS CLIENTES
+================================ */
+
+.pagina-clientes {
+  font-family: 'Poppins', sans-serif;
+  color: #ffffff;
+  background:
+    radial-gradient(circle at 88% 10%, rgba(0, 184, 250, 0.16), transparent 24%),
+    linear-gradient(115deg, #003556 0%, #1a2bc0 50%, #002c92 100%);
+}
+
+.clientes-marca-dagua {
+  position: absolute;
+  left: 75px;
+  top: 95px;
+  width: 620px;
+  height: 620px;
+  object-fit: contain;
+  opacity: 0.035;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.clientes-logo-fiscalio {
+  position: absolute;
+  top: 55px;
+  left: 86px;
+  width: 180px;
+  height: auto;
+  z-index: 3;
+}
+
+.clientes-texto {
+  position: absolute;
+  left: 74px;
+  top: 300px;
+  width: 500px;
+  z-index: 3;
+}
+
+.clientes-texto h1 {
+  margin: 0 0 25px 0;
+  font-size: 56px;
+  line-height: 1;
+  font-weight: 300;
+  letter-spacing: -1.5px;
+  color: #ffffff;
+}
+
+.clientes-texto h1 strong {
+  font-weight: 800;
+}
+
+.clientes-texto p {
+  margin: 0;
+  font-size: 26px;
+  line-height: 1.18;
+  font-weight: 400;
+  color: #ffffff;
+}
+
+.clientes-rodape {
+  position: absolute;
+  left: 86px;
+  bottom: 52px;
+  z-index: 3;
+  font-size: 23px;
+  line-height: 1;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+/* grade dos logos */
+.clientes-grade {
+  position: absolute;
+  top: 14px;
+  left: 610px;
+  width: 800px;
+  height: 690px;
+  z-index: 4;
+}
+
+.cliente-bolha {
+  position: absolute;
+  width: 154px;
+  height: 154px;
+  border-radius: 50%;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.cliente-bolha.azul {
+  background: #202088;
+}
+ 
+.cliente-bolha.ksb img {
+  filter: brightness(0) invert(1);
+}
+
+
+  .cliente-bolha img {
+  max-width: 104px;
+  max-height: 68px;
+  object-fit: contain;
+}
+
+/* linha 1 */
+.clientes-grade .cliente-bolha:nth-child(1) {
+  left: 0;
+  top: 0;
+}
+
+.clientes-grade .cliente-bolha:nth-child(2) {
+  left: 166px;
+  top: 0;
+}
+
+.clientes-grade .cliente-bolha:nth-child(3) {
+  left: 332px;
+  top: 0;
+}
+
+.clientes-grade .cliente-bolha:nth-child(4) {
+  left: 498px;
+  top: 0;
+}
+
+/* linha 2 */
+.clientes-grade .cliente-bolha:nth-child(5) {
+  left: 118px;
+  top: 178px;
+}
+
+.clientes-grade .cliente-bolha:nth-child(6) {
+  left: 284px;
+  top: 178px;
+}
+
+.clientes-grade .cliente-bolha:nth-child(7) {
+  left: 450px;
+  top: 178px;
+}
+
+/* linha 3 */
+.clientes-grade .cliente-bolha:nth-child(8) {
+  left: 0;
+  top: 356px;
+}
+
+.clientes-grade .cliente-bolha:nth-child(9) {
+  left: 166px;
+  top: 356px;
+}
+
+.clientes-grade .cliente-bolha:nth-child(10) {
+  left: 332px;
+  top: 356px;
+}
+
+.clientes-grade .cliente-bolha:nth-child(11) {
+  left: 498px;
+  top: 356px;
+}
+
+/* linha 4 */
+.clientes-grade .cliente-bolha:nth-child(12) {
+  left: 140px;
+  top: 534px;
+}
+
+.clientes-grade .cliente-bolha:nth-child(13) {
+  left: 306px;
+  top: 534px;
+}
+
+.clientes-grade .cliente-bolha:nth-child(14) {
+  left: 472px;
+  top: 534px;
+}
+
+
+/* =========================================================
+   PÁGINA 4 - SUA JORNADA COM A GENTE
+========================================================= */
+
+.pagina-jornada {
+    background: #ffffff;
+    display: flex;
+    padding: 42px 70px;
+    gap: 28px;
+    overflow: hidden;
+    position: relative;
+    align-items: center;
+}
+
+/* PAINEL AZUL ESQUERDO */
+
+.jornada-lateral {
+    width: 360px;
+    height: 596px;
+    background: #2437f5;
+    border-radius: 18px;
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+  margin-top: 8px;
+}
+
+.jornada-marca-agua {
+    position: absolute;
+    inset: -20px 0 0 22px;
+    font-size: 520px;
+    line-height: .8;
+    font-weight: 800;
+    color: rgba(255, 255, 255, .055);
+    letter-spacing: -45px;
+    pointer-events: none;
+}
+
+.jornada-titulo {
+    position: absolute;
+    left: 90px;
+    top: 166px;
+    color: #ffffff;
+    font-size: 45px;
+    line-height: .92;
+    letter-spacing: -2px;
+    font-weight: 500;
+    z-index: 2;
+}
+
+.jornada-titulo span {
+    display: block;
+}
+
+.jornada-titulo span:nth-child(1),
+.jornada-titulo span:nth-child(2) {
+    font-weight: 800;
+}
+
+.jornada-logo-rodape {
+    position: absolute;
+    left: 108px;
+    bottom: 30px;
+    width: 150px;
+    z-index: 2;
+}
+
+/* ÁREA DOS CARDS */
+
+.jornada-area {
+    flex: 1;
+    position: relative;
+    height: 596px;
+}
+
+/* MARCA D'ÁGUA CINZA DO FUNDO */
+
+.jornada-marca-fundo {
+    position: absolute;
+    width: 142px;
+    height: 34px;
+    left: 245px;
+    top: -22px;
+    background: rgba(36, 55, 245, .07);
+    z-index: 0;
+}
+
+/* CARDS */
+
+.jornada-card {
+    position: absolute;
+    width: 360px;
+    height: 185px;
+    border-radius: 6px;
+    padding: 34px 34px 22px 34px;
+    box-sizing: border-box;
+    z-index: 2;
+}
+
+.jornada-card.verde {
+    background: #09d07a;
+    color: #061b1f;
+}
+
+.jornada-card.azul {
+    background: #2437f5;
+    color: #ffffff;
+}
+
+/* NÚMEROS */
+
+.jornada-numero {
+    position: absolute;
+    top: -6px;
+    left: -6px;
+    width: 36px;
+    height: 36px;
+    border-radius: 4px;
+    background: #2437f5;
+    color: #ffffff;
+    font-size: 24px;
+    line-height: 1;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.jornada-card.azul .jornada-numero {
+    background: #09d07a;
+}
+
+/* TEXTOS DOS CARDS */
+
+.jornada-card h3 {
+    margin: 0 0 8px;
+    font-size: 17px;
+    line-height: 1.05;
+    font-weight: 800;
+    letter-spacing: -0.2px;
+}
+
+.jornada-card strong {
+    display: block;
+    font-size: 11px;
+    line-height: 1.2;
+    font-weight: 700;
+    margin-bottom: 17px;
+}
+
+.jornada-card p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.18;
+    font-weight: 400;
+}
+
+/* POSICIONAMENTO DOS CARDS */
+
+.card-1 {
+    left: 0;
+    top: 5px;
+}
+
+.card-2 {
+    right: 0;
+    top: 5px;
+}
+
+.card-3 {
+    left: 0;
+    top: 215px;
+}
+
+.card-4 {
+    right: 0;
+    top: 215px;
+}
+
+.card-5 {
+    left: 0;
+    top: 420px;
+}
+
+.card-6 {
+    right: 0;
+    top: 420px;
+}
+
+
+
+/* =========================================================
+   PÁGINA 5 - FUNCIONALIDADES / PARTE 1
+========================================================= */
+
+.pagina-funcionalidades {
+    background: #ffffff;
+    display: flex;
+    padding: 0;
+    overflow: hidden;
+}
+
+.func-lateral {
+    width: 318px;
+    height: 720px;
+    background: #2437f5;
+    color: #ffffff;
+    padding-left: 36px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.func-titulo {
+    margin-top: -12px;
+    margin-bottom: 12px;
+}
+
+.func-titulo span,
+.func-titulo strong {
+    display: block;
+    color: #ffffff;
+    letter-spacing: -1.8px;
+}
+
+.func-titulo span {
+    font-size: 52px;
+    line-height: .92;
+    font-weight: 200;
+}
+
+.func-titulo strong {
+    font-size: 50px;
+    line-height: .95;
+    font-weight: 600;
+}
+
+.func-lateral p {
+    margin: 14px 0 0;
+    font-size: 28px;
+    line-height: 1.12;
+    font-weight: 400;
+    letter-spacing: -0.5px;
+}
+
+.func-conteudo {
+    flex: 1;
+    padding: 38px 31px 0 29px;
+    box-sizing: border-box;
+}
+
+.func-grid {
+    width: 100%;
+}
+
+.func-linha {
+    display: grid;
+    grid-template-columns: 1fr 58px 1fr 42px;
+    align-items: center;
+    min-height: 33.5px;
+    padding: 0 10px;
+    box-sizing: border-box;
+    font-size: 12.8px;
+    line-height: 1.1;
+    color: #333333;
+}
+
+.func-linha:nth-child(odd) {
+    background: #cfe3f8;
+}
+
+.func-linha:nth-child(even) {
+    background: #ffffff;
+}
+
+.func-texto {
+    white-space: normal;
+}
+
+.func-valor {
+    text-align: center;
+    font-size: 13px;
+    color: #111111;
+}
+
+.func-check {
+    color: #06c878;
+    font-size: 27px;
+    line-height: 1;
+    font-weight: 600;
+    text-align: center;
+}
+
+
+/* =========================================================
+   PÁGINA 7 - INVESTIMENTO
+========================================================= */
+
+.pagina-investimento {
+    background: #09d07a;
+    position: relative;
+    overflow: hidden;
+    font-family: 'Poppins', sans-serif;
+}
+
+.invest-marca-agua {
+    position: absolute;
+    left: 55px;
+    top: 20px;
+    font-size: 640px;
+    line-height: .8;
+    font-weight: 800;
+    color: rgba(255,255,255,.39);
+    letter-spacing: -50px;
+    pointer-events: none;
+}
+
+.invest-esquerda {
+    position: absolute;
+    left: 90px;
+    top: 236px;
+    color: #062b2f;
+    z-index: 2;
+}
+
+.invest-esquerda h4 {
+    margin: 0 0 26px;
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+}
+
+.invest-esquerda h2 {
+    margin: 0;
+    font-size: 47px;
+    line-height: 1.08;
+    font-weight: 800;
+    letter-spacing: -1.5px;
+}
+
+.invest-logo {
+    width: 180px;
+    height: auto;
+	margin-top: 25px;
+  	display: block;
+    opacity: 0.82;
+}
+
+.invest-marca-agua-img {
+    position: absolute;
+    width: 480px;
+    height: auto;
+    display: block;
+    left: 15px;
+    top: 60px;
+
+    opacity: 0.09;
+    z-index: 1;
+}
+
+.invest-card {
+    position: absolute;
+    right: 64px;
+    top: 72px;
+    width: 624px;
+    height: 545px;
+    background: #082a6d;
+    border-radius: 30px;
+    color: #ffffff;
+    padding: 22px 54px 18px;
+    box-sizing: border-box;
+    z-index: 5;
+}
+
+.invest-descricao {
+    font-size: 13.6px;
+    line-height: 1.18;
+    font-weight: 300;
+    outline: none;
+  	overflow: hidden;
+}
+
+.invest-descricao p {
+    margin: 0 0 9px;
+}
+
+.invest-descricao strong {
+    font-weight: 400;
+}
+
+.invest-valores {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.invest-box {
+    border: 3px solid #ffffff;
+    border-radius: 9px;
+    padding: 28px 14px 22px;
+    box-sizing: border-box;
+}
+
+.invest-box span {
+    display: block;
+    font-size: 16px;
+    line-height: 1.15;
+    font-weight: 400;
+    margin-bottom: 4px;
+}
+
+.invest-box strong {
+    display: block;
+    font-size: 44px;
+    line-height: 1;
+    font-weight: 600;
+    color: #09d07a;
+    letter-spacing: -1px;
+}
+
+.invest-box-mensal {
+    width: 292px;
+    height: 139px;
+}
+
+.invest-box-instalacao {
+    width: 215px;
+    height: 96px;
+    padding-top: 20px;
+   position: relative;
+}
+
+.invest-box-instalacao span {
+    font-size: 14px;
+    }
+
+.invest-box-instalacao strong {
+    font-size: 30px;
+    color: #42aef5;
+}
+
+.invest-licencas {
+    display: block;
+    width: 220px;
+    margin-top: 12px;
+    margin-left: auto;
+    margin-right: 40px;
+    text-align: center;
+
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.invest-licencas strong {
+    font-weight: 600;
+}
+
+.invest-validade {
+    position: absolute;
+    right: 254px;
+    bottom: 58px;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 500;
+    z-index: 2;
+}
+
+/* =========================================================
+   PÁGINA ENCERRAMENTO
+========================================================= */
+
+.pagina-encerramento{
+    background:#f4f4f4;
+    display:flex;
+    padding:55px 70px;
+    box-sizing:border-box;
+    position:relative;
+    overflow:hidden;
+}
+
+/* ESQUERDA */
+
+.enc-esquerda{
+    width:55%;
+    position:relative;
+}
+
+.enc-logo{
+    width:150px;
+    margin-bottom:40px;
+}
+
+
+.enc-marca-agua{
+    width:430px;
+    left:40px;
+    top:25px;
+    opacity:0.08;
+  	position:absolute;
+    z-index:0;
+}
+
+.enc-seta{
+    position:absolute;
+
+    left:-25px;
+    bottom:8px;
+
+    width:420px;
+    height:auto;
+
+    opacity:.85;
+}
+
+.enc-texto{
+    position:relative;
+    z-index:2;
+	margin-top:10px;
+
+    width:470px;
+
+    font-size:32px;
+    line-height:1.05;
+    font-weight:400;
+
+    color:#202020;
+}
+
+.enc-texto strong{
+    font-weight:800;
+}
+
+/* DIREITA */
+
+.enc-direita{
+    flex:1;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+}
+
+.enc-card{
+    width:100%;
+    max-width:420px;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+
+    text-align:center;
+}
+
+.enc-foto{
+    width:240px;
+    height:240px;
+
+    display:block;
+    margin:0 auto;
+
+    border-radius:50%;
+    object-fit:cover;
+    border:3px solid #1d9bf0;
+}
+
+.enc-card h2{
+    margin:28px 0 10px;
+
+    font-size:28px;
+    font-weight:800;
+
+    text-decoration:underline;
+}
+
+.enc-card .cargo{
+    font-size:22px;
+    margin-bottom:24px;
+
+    text-decoration:underline;
+}
+
+.enc-card p{
+    font-size:18px;
+    margin-bottom:18px;
+}
+
+.enc-footer{
+    margin-top:42px;
+
+    font-size:22px;
+    font-weight:400;
+
+    color:#222;
+}
+
+
+/* correções */
+
+@media print {
+
+  html,
+  body {
+    background: #ffffff;
+    margin: 0;
+    padding: 0;
+    overflow: visible;
+  }
+
+  .pagina {
+    width: 1280px;
+    height: 720px;
+    min-width: 1280px;
+    min-height: 720px;
+    max-width: 1280px;
+    max-height: 720px;
+
+    margin: 0;
+    box-shadow: none;
+
+    page-break-after: always;
+    break-after: page;
+  }
+
+  .pagina:last-child {
+    page-break-after: auto;
+    break-after: auto;
+  }
+}
+
+body{
+    display:flex;
+    justify-content:center;
+    background:#111827;
+    overflow-y:auto;
+}
+
+.proposta-viewer{
+    width:1280px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    padding:40px 0 80px;
+}
+
+.pagina{
+    margin-bottom:40px;
+    flex:none;
+}
+@media print {
+
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+
+  html,
+  body {
+    background: #ffffff !important;
+  }
+
+  .pagina {
+    print-color-adjust: exact !important;
+    -webkit-print-color-adjust: exact !important;
+  }
+}
+
+/* Impressão */
+
+@page {
+  size: A4 landscape;
+  margin: 0;
+}
+
+@media print {
+  html,
+  body {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 297mm !important;
+    height: auto !important;
+    background: #ffffff !important;
+    overflow: visible !important;
+  }
+
+  .proposta-viewer,
+  #propostaViewer {
+    width: 297mm !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: block !important;
+  }
+
+  .pagina {
+    width: 297mm !important;
+    height: 167.06mm !important;
+    min-width: 297mm !important;
+    min-height: 167.06mm !important;
+    max-width: 297mm !important;
+    max-height: 167.06mm !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    overflow: hidden !important;
+
+    page-break-after: always;
+    break-after: page;
+  }
+
+  .pagina:last-child {
+    page-break-after: auto;
+    break-after: auto;
+  }
+
+  .toolbar-proposta,
+  .viewer-toolbar {
+    display: none !important;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
+
+
+@media print {
+
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  html,
+  body {
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #ffffff !important;
+    width: 1280px !important;
+  }
+
+  .proposta-viewer {
+    width: 1280px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: block !important;
+  }
+
+  .pagina {
+    width: 1280px !important;
+    height: 720px !important;
+    min-width: 1280px !important;
+    min-height: 720px !important;
+    max-width: 1280px !important;
+    max-height: 720px !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    overflow: hidden !important;
+
+    page-break-after: always;
+    break-after: page;
+  }
+
+  .pagina:last-child {
+    page-break-after: auto;
+    break-after: auto;
+  }
+}
+.toolbar-proposta {
+  position: fixed;
+  top: 18px;
+  right: 24px;
+  z-index: 9999;
+
+  display: flex;
+  gap: 10px;
+}
+
+.toolbar-proposta button {
+  border: 0;
+  border-radius: 999px;
+  padding: 10px 18px;
+
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  background: #ffffff;
+  color: #0f172a;
+
+  box-shadow: 0 8px 24px rgba(0,0,0,.25);
+}
+
+.toolbar-proposta button:hover {
+  transform: translateY(-1px);
+}
+
+@media print {
+  .toolbar-proposta {
+    display: none !important;
+  }
+}
+
+/* =====================================================
+   VIEWER
+===================================================== */
+
+.viewer-toolbar{
+    position:fixed;
+    top:20px;
+    right:20px;
+    z-index:99999;
+
+    display:flex;
+    gap:12px;
+}
+
+.viewer-toolbar button{
+    border:none;
+    cursor:pointer;
+
+    padding:14px 22px;
+
+    border-radius:999px;
+
+    font-family:Poppins,sans-serif;
+    font-weight:600;
+}
+
+#btnGerarPdf{
+    background:#1769ff;
+    color:#fff;
+}
+
+.viewer-voltar{
+    background:#111827;
+    color:#fff;
+}
+
+/* espaço para os botões */
+
+#propostaViewer{
+    padding-top:90px;
+}
+
+/* slides um abaixo do outro */
+
+#propostaViewer .pagina{
+    margin:0 auto 40px auto;
+}
+
+.invest-descricao {
+  max-height: none;
+  overflow: visible;
+  margin-bottom: 20px;
+}
+
+.invest-descricao p {
+  margin: 0 0 7px 0;
+  line-height: 1.28;
+}
+
+.invest-valores {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  margin-top: 0;
+}
+
+.invest-box {
+  flex-shrink: 0;
+}
+
+.invest-box-mensal {
+  width: 290px;
+}
+
+.invest-box-instalacao {
+  width: 220px;
+}
+
+.invest-licencas {
+  margin-top: 12px;
+  margin-left: 25px;
+  width: 220px;
+  text-align: center;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+}
+.invest-coluna-instalacao {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: -30px;
+}

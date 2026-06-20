@@ -1,0 +1,24 @@
+[
+    {
+        "id": 1,
+        "nome": "Adriner Ferreira",
+        "email": "adriner.ferreira@fiscal.io",
+        "usuario": "adriner",
+        "senha": "123456",
+        "perfil": "admin",
+        "ativo": true
+    },
+    {
+        "id": 2,
+        "nome": "Negolin",
+        "email": "teste@teste.com",
+        "usuario": "Dico",
+        "senha": "123456",
+        "perfil": "gestor",
+        "ativo": true,
+        "criadoEm": "2026-06-13 16:55:35",
+        "criadoPor": "Adriner Ferreira",
+        "atualizadoEm": "2026-06-13 17:09:02",
+        "atualizadoPor": "Adriner Ferreira"
+    }
+]

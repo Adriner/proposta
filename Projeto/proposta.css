@@ -1,0 +1,781 @@
+/* =========================================================
+   PROPOSTA COMERCIAL FISCAL.IO
+   CSS revisado: capa original + QR, página 2 PPT,
+   páginas 3, 4 e 5 preservadas, rodapé padrão.
+========================================================= */
+
+* {
+  box-sizing: border-box;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: #dbe3ef;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #0f172a;
+}
+
+.pagina {
+  width: 297mm;
+  height: 210mm;
+  margin: 20px auto;
+  background: #ffffff;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 12px 35px rgba(15, 23, 42, 0.18);
+}
+
+/* =========================================================
+   PÁGINA 1 - CAPA ORIGINAL
+========================================================= */
+
+.capa {
+  padding: 0;
+}
+
+.capa-topo {
+  position: relative;
+  height: 150mm;
+  overflow: hidden;
+  background: #1550cf;
+}
+
+.capa-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.logo-fiscalio {
+  position: absolute;
+  left: 20mm;
+  top: 88mm;
+  width: 85mm;
+}
+
+.notebook-capa {
+  position: absolute;
+  right: 15mm;
+  top: 34mm;
+  width: 145mm;
+}
+
+.texto-proposta {
+  position: absolute;
+  left: 25mm;
+  bottom: 5mm;
+  color: #ffffff;
+}
+
+.texto-proposta span {
+  display: block;
+  width: 16mm;
+  border-top: 0.6mm solid #ffffff;
+  margin-bottom: 3.5mm;
+}
+
+.texto-proposta p {
+  margin: 0;
+  font-size: 5.4mm;
+}
+
+.barra-capa {
+  position: absolute;
+  left: 20mm;
+  top: 147mm;
+  width: 135mm;
+  height: 5.8mm;
+  object-fit: fill;
+  z-index: 5;
+}
+
+.capa-rodape {
+  height: 74mm;
+  padding: 18mm 24mm 0 20mm;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-bottom: 0.45mm solid #1550cf;
+}
+
+.titulo-plano h1 {
+  margin: 0;
+  font-size: 8.4mm;
+  line-height: 1.05;
+  color: #1550cf;
+  font-weight: 800;
+}
+
+.titulo-plano h1 span {
+  color: #0db469;
+}
+
+.titulo-plano p {
+  margin: 1.5mm 0 0;
+  font-size: 4.8mm;
+  color: #1550cf;
+}
+
+.box-cliente {
+  width: 66mm;
+  margin-top: -7mm;
+}
+
+.logo-cliente {
+  height: 35mm;
+  border: 0.32mm solid #111827;
+  border-radius: 5.5mm;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4mm;
+  text-align: center;
+  font-size: 5.2mm;
+  font-weight: 800;
+  color: #334155;
+  background: #ffffff;
+}
+
+.logo-cliente-img {
+  max-width: 90%;
+  max-height: 85%;
+  object-fit: contain;
+  display: none;
+}
+
+.faixa-proposta {
+  width: 88%;
+  margin-top: -3mm;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  left: 1mm;
+  height: 8.5mm;
+  background: #1550cf;
+  color: #ffffff;
+  border-radius: 1.5mm;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.75mm;
+  font-weight: 600;
+}
+
+/* QR CODE NA CAPA */
+
+.qr-proposta {
+  position: absolute;
+  left: 20mm;
+  top: 15mm;
+  width: 34mm;
+  padding: 3mm;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(6px);
+  border: 0.3mm solid rgba(255, 255, 255, 0.35);
+  border-radius: 4mm;
+  color: #ffffff;
+  z-index: 100;
+  text-align: center;
+}
+
+.qr-proposta-img {
+  width: 18mm;
+  height: 18mm;
+  margin: 0 auto 2mm;
+  background: #ffffff;
+  padding: 1.2mm;
+  border-radius: 2mm;
+}
+
+.qr-proposta-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.qr-proposta-info strong {
+  display: block;
+  font-size: 3.6mm;
+  margin-bottom: 1mm;
+}
+
+.qr-proposta-info span {
+  display: block;
+  font-size: 2.3mm;
+  line-height: 1.3;
+  opacity: 0.95;
+}
+
+.qr-proposta-info small {
+  display: block;
+  margin-top: 2mm;
+  font-size: 2.4mm;
+  color: #22c86f;
+  font-weight: 700;
+}
+
+/* =========================================================
+   PÁGINAS INTERNAS - BASE
+========================================================= */
+
+.apresentacao,
+.diagnostico,
+.investimento {
+  padding: 18mm 20mm;
+}
+
+.pagina-header {
+  border-bottom: 0.65mm solid #1550cf;
+  padding-bottom: 6mm;
+  margin-bottom: 11mm;
+}
+
+.pagina-titulo {
+  font-size: 7.5mm;
+  font-weight: 800;
+  color: #1550cf;
+}
+
+/* BARRA LATERAL DAS PÁGINAS INTERNAS */
+
+.apresentacao::before,
+.diagnostico::before,
+.investimento::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4mm;
+  height: 130mm;
+  background: linear-gradient(
+    to bottom,
+    #1550cf 0%,
+    #1550cf 20%,
+    #2fadd4 20%,
+    #2fadd4 40%,
+    #28bfb4 40%,
+    #28bfb4 60%,
+    #29d2a2 60%,
+    #29d2a2 80%,
+    #22c86f 80%,
+    #22c86f 100%
+  );
+  z-index: 5;
+}
+
+/* =========================================================
+   PÁGINA 2 - APRESENTAÇÃO ESTILO POWERPOINT
+========================================================= */
+
+.apresentacao-ppt {
+  position: relative;
+  padding: 0;
+}
+
+.apresentacao-ppt .pagina-header,
+.apresentacao-ppt .pagina-conteudo {
+  display: none;
+}
+
+.apresentacao-visual-css {
+  position: absolute;
+  left: 44mm;
+  top: 49mm;
+  width: 106mm;
+  height: 103mm;
+  display: grid;
+  grid-template-columns: repeat(4, 19.5mm);
+  grid-template-rows: repeat(4, 19.5mm);
+  gap: 8.5mm 8.5mm;
+  z-index: 5;
+}
+
+.apresentacao-visual-css span {
+  display: block;
+  width: 19.5mm;
+  height: 19.5mm;
+  border-radius: 50%;
+  background-image: url("../assets/capim.jpg");
+  background-size: 106mm 103mm;
+  background-repeat: no-repeat;
+}
+
+.apresentacao-visual-css span:nth-child(1) { background-position: 0 0; }
+.apresentacao-visual-css span:nth-child(2) { background-position: -28mm 0; }
+.apresentacao-visual-css span:nth-child(3) { background-position: -56mm 0; }
+.apresentacao-visual-css span:nth-child(4) { background-position: -84mm 0; }
+.apresentacao-visual-css span:nth-child(5) { background-position: 0 -28mm; }
+.apresentacao-visual-css span:nth-child(6) { background-position: -28mm -28mm; }
+.apresentacao-visual-css span:nth-child(7) { background-position: -56mm -28mm; }
+.apresentacao-visual-css span:nth-child(8) { background-position: -84mm -28mm; }
+.apresentacao-visual-css span:nth-child(9) { background-position: 0 -56mm; }
+.apresentacao-visual-css span:nth-child(10) { background-position: -28mm -56mm; }
+.apresentacao-visual-css span:nth-child(11) { background-position: -56mm -56mm; }
+.apresentacao-visual-css span:nth-child(12) { background-position: -84mm -56mm; }
+.apresentacao-visual-css span:nth-child(13) { background-position: 0 -84mm; }
+.apresentacao-visual-css span:nth-child(14) { background-position: -28mm -84mm; }
+.apresentacao-visual-css span:nth-child(15) { background-position: -56mm -84mm; }
+.apresentacao-visual-css span:nth-child(16) { background-position: -84mm -84mm; }
+
+.apresentacao-texto {
+  position: absolute;
+  left: 192mm;
+  top: 46mm;
+  width: 88mm;
+  font-size: 3mm;
+  line-height: 1.42;
+  color: #222222;
+}
+
+.apresentacao-texto p {
+  margin: 0 0 5.5mm;
+}
+
+.apresentacao-contato {
+  margin-bottom: 8mm;
+}
+
+.assinatura-ppt {
+  display: flex;
+  align-items: center;
+  gap: 8mm;
+  margin-top: 7mm;
+}
+
+.assinatura-imagens {
+  width: 24mm;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.foto-vendedor {
+  width: 16mm;
+  height: 16mm;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto 2mm;
+}
+
+.logo-assinatura {
+  display: block;
+  width: 21mm;
+  height: auto;
+  margin: 3mm auto 0;
+  opacity: 1;
+  visibility: visible;
+}
+
+.assinatura-dados-ppt {
+  font-size: 2.75mm;
+  line-height: 1.32;
+}
+
+.assinatura-dados-ppt strong {
+  display: block;
+  font-size: 3mm;
+  margin-bottom: 1mm;
+}
+
+.assinatura-dados-ppt p {
+  margin-top: 4mm;
+}
+
+/* =========================================================
+   PÁGINA 3 - DIAGNÓSTICO
+========================================================= */
+
+.diagnostico {
+  background:
+    linear-gradient(135deg, rgba(21, 80, 207, 0.08), rgba(255, 255, 255, 0) 48%),
+    #ffffff;
+}
+
+.diagnostico-grid {
+  display: grid;
+  grid-template-columns: 76mm 96mm 78mm;
+  gap: 8mm;
+  align-items: stretch;
+}
+
+.diagnostico-card {
+  min-height: 128mm;
+  border: 0.25mm solid #dbe3ef;
+  border-radius: 6mm;
+  padding: 8mm;
+  background: #ffffff;
+  box-shadow: 0 2mm 6mm rgba(15, 23, 42, 0.08);
+}
+
+.diagnostico-card.destaque {
+  background: #f8fbff;
+  border-color: rgba(21, 80, 207, 0.25);
+}
+
+.solucao-card {
+  background: #1550cf;
+  color: #ffffff;
+  border-color: #1550cf;
+}
+
+.diagnostico-label {
+  display: inline-flex;
+  padding: 1.5mm 3mm;
+  border-radius: 10mm;
+  background: rgba(21, 80, 207, 0.1);
+  color: #1550cf;
+  font-size: 2.6mm;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.15mm;
+  margin-bottom: 5mm;
+}
+
+.solucao-card .diagnostico-label {
+  background: rgba(255, 255, 255, 0.16);
+  color: #ffffff;
+}
+
+.diagnostico-card h2 {
+  margin: 0 0 6mm;
+  font-size: 4.4mm;
+  line-height: 1.1;
+  color: #1550cf;
+}
+
+.solucao-card h2 {
+  color: #ffffff;
+}
+
+.diagnostico-bloco {
+  margin-top: 6mm;
+}
+
+.diagnostico-bloco h3,
+.diagnostico-card h3 {
+  margin: 0 0 2.5mm;
+  font-size: 2.8mm;
+  color: #1550cf;
+}
+
+.diagnostico-bloco p,
+.lista-texto {
+  margin: 0;
+  font-size: 2.7mm;
+  line-height: 1.45;
+  color: #1f2937;
+}
+
+.lista-diagnostico {
+  display: flex;
+  flex-direction: column;
+  gap: 3mm;
+}
+
+.lista-diagnostico div {
+  position: relative;
+  padding: 3mm 3.5mm 3mm 8mm;
+  background: #ffffff;
+  border-radius: 3mm;
+  border: 0.25mm solid #dbe3ef;
+  font-size: 2.5mm;
+  line-height: 1.35;
+  color: #111827;
+}
+
+.lista-diagnostico div::before {
+  content: "";
+  position: absolute;
+  left: 3mm;
+  top: 4mm;
+  width: 2mm;
+  height: 2mm;
+  border-radius: 50%;
+  background: #0db469;
+}
+
+#textoSolucao {
+  margin: 0;
+  font-size: 2.8mm;
+  line-height: 1.55;
+  color: #ffffff;
+}
+
+.mini-beneficios {
+  display: none;
+}
+
+/* =========================================================
+   PÁGINA 4 - FUNCIONALIDADES DO PLANO
+========================================================= */
+
+.funcionalidades-html {
+  padding: 14mm 14mm 8mm;
+  background: #ffffff;
+}
+
+.func-faixa-lateral {
+  position: absolute;
+  left: 0;
+  top: 32mm;
+  width: 3.2mm;
+  height: 112mm;
+  display: flex;
+  flex-direction: column;
+}
+
+.func-faixa-lateral span {
+  flex: 1;
+}
+
+.func-faixa-lateral span:nth-child(1) { background: #1550cf; }
+.func-faixa-lateral span:nth-child(2) { background: #2fadd4; }
+.func-faixa-lateral span:nth-child(3) { background: #28bfb4; }
+.func-faixa-lateral span:nth-child(4) { background: #29d2a2; }
+.func-faixa-lateral span:nth-child(5) { background: #22c86f; }
+
+.funcionalidades-header {
+  width: 232mm;
+  margin: 0 auto 8mm;
+}
+
+.funcionalidades-header h1 {
+  margin: 0;
+  color: #1550cf;
+  font-size: 7.2mm;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.funcionalidades-grid {
+  width: 232mm;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 7mm;
+}
+
+.func-coluna {
+  min-width: 0;
+}
+
+.func-coluna-titulo {
+  display: grid;
+  grid-template-columns: 1fr 13mm;
+  align-items: center;
+  border-bottom: 0.22mm solid #28a9b7;
+  padding-bottom: 1mm;
+  font-size: 2mm;
+  color: #111827;
+}
+
+.func-coluna-titulo span:first-child {
+  visibility: hidden;
+}
+
+.func-coluna-titulo strong {
+  text-align: center;
+  font-size: 2mm;
+  font-weight: 500;
+  color: #111827;
+}
+
+.func-linha {
+  display: grid;
+  grid-template-columns: 1fr 13mm;
+  align-items: center;
+  min-height: 5.6mm;
+  border-bottom: 0.22mm solid #28a9b7;
+  font-size: 2.15mm;
+  line-height: 1.1;
+  color: #111827;
+}
+
+.func-nome {
+  padding: 1.2mm 1mm;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.func-valor {
+  text-align: center;
+  padding: 0.4mm 0;
+  font-size: 2.15mm;
+  color: #111827;
+}
+
+.func-valor.ok {
+  color: #111827;
+  font-weight: 700;
+}
+
+.func-valor.negativo {
+  color: #e11d48;
+  font-weight: 700;
+}
+
+.func-valor.texto {
+  font-size: 2mm;
+}
+
+/* =========================================================
+   PÁGINA 5 - INVESTIMENTO
+========================================================= */
+
+.investimento-grid {
+  display: grid;
+  grid-template-columns: 1fr 82mm 70mm;
+  gap: 10mm;
+  align-items: start;
+}
+
+.investimento-esquerda h3,
+.investimento-direita h3 {
+  color: #1550cf;
+  font-size: 3.3mm;
+  margin: 0 0 4mm;
+}
+
+.investimento-esquerda ul,
+.investimento-direita ul {
+  margin: 0;
+  padding-left: 5mm;
+  font-size: 2.6mm;
+  line-height: 1.5;
+  color: #111827;
+}
+
+.investimento-esquerda li,
+.investimento-direita li {
+  margin-bottom: 2.5mm;
+}
+
+.investimento-centro {
+  display: flex;
+  justify-content: center;
+}
+
+.plano-card {
+  width: 100%;
+  background: #d9eff8;
+  border-radius: 6mm;
+  padding: 6mm;
+  text-align: left;
+  box-shadow: 0 2mm 5mm rgba(15, 23, 42, 0.22);
+  border: 0.25mm solid rgba(15, 23, 42, 0.18);
+}
+
+.plano-card h2 {
+  margin: 0 0 5mm;
+  color: #1550cf;
+  font-size: 4.6mm;
+  text-align: center;
+  font-weight: 700;
+}
+
+.linha-plano {
+  display: flex;
+  justify-content: space-between;
+  gap: 4mm;
+  padding: 2.2mm 0;
+  border-bottom: 0.25mm solid #b8c7d9;
+  font-size: 2.5mm;
+}
+
+.linha-plano span {
+  color: #334155;
+}
+
+.linha-plano strong {
+  color: #1550cf;
+  font-weight: 800;
+  text-align: right;
+}
+
+.linha-destaque {
+  background: rgba(21, 80, 207, 0.08);
+  margin: 0 -2mm 1.5mm;
+  padding: 2.7mm;
+  border-radius: 2mm;
+  border-bottom: none;
+}
+
+/* =========================================================
+   RODAPÉ PADRÃO DAS PÁGINAS
+========================================================= */
+
+.rodape-pagina {
+  position: absolute;
+  left: 20mm;
+  right: 20mm;
+  bottom: 8mm;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 2.4mm;
+  color: #1550cf;
+  border-top: 0.25mm solid #d8dde6;
+  padding-top: 2mm;
+  z-index: 50;
+}
+
+.pagina-numero {
+  position: absolute;
+  right: 20mm;
+  bottom: 3.5mm;
+  font-size: 2.4mm;
+  color: #111827;
+  z-index: 60;
+}
+
+/* =========================================================
+   IMPRESSÃO A4 PAISAGEM
+========================================================= */
+
+@media print {
+  html,
+  body {
+    width: 297mm;
+    height: 210mm;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #ffffff !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  .pagina {
+    width: 297mm !important;
+    height: 210mm !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+    page-break-after: always;
+    break-after: page;
+  }
+
+  .pagina:last-child {
+    page-break-after: auto;
+    break-after: auto;
+  }
+
+  @page {
+    size: A4 landscape;
+    margin: 0;
+  }
+}

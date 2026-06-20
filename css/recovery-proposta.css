@@ -1,0 +1,707 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #eef1f5;
+  font-family: 'Poppins', Arial, sans-serif;
+  color: #1f2937;
+}
+
+.viewer-topo {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding: 14px 24px;
+  background: #ffffff;
+  border-bottom: 1px solid #ddd;
+}
+
+.viewer-topo button {
+  background: #0f4c81;
+  color: #ffffff;
+  border: 0;
+  border-radius: 8px;
+  padding: 10px 18px;
+  cursor: pointer;
+  font-weight: 400;
+}
+
+#propostaRecovery {
+  padding: 30px 0;
+}
+
+.slide {
+  width: 1280px;
+  height: 720px;
+  margin: 0 auto 30px;
+  padding: 70px;
+  background: #ffffff;
+  position: relative;
+  overflow: hidden;
+}
+
+/* =========================
+   CAPA
+========================= */
+
+.capa-recovery {
+  padding: 0;
+  color: #ffffff;
+  background:
+    radial-gradient(circle at 18% 45%, rgba(0, 185, 250, .35) 0%, rgba(0, 185, 250, .10) 26%, transparent 48%),
+    linear-gradient(135deg, #064f7f 0%, #073b63 42%, #06243d 100%);
+}
+
+.marca-dagua {
+  position: absolute;
+  inset: 0;
+  background-image: url('../assets/Logo - 246x304.png');
+  background-repeat: no-repeat;
+  background-position: right 80px center;
+  background-size: 530px;
+  opacity: .07;
+  z-index: 1;
+  
+  
+}
+
+.capa-arquivos {
+  position: absolute;
+  left: -105px;
+  bottom: 82px;
+
+  width: 680px;
+  height: 560px;
+
+  background-image: url('../assets/xml-file.png?v=11');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: left bottom;
+
+  z-index: 4;
+  filter: drop-shadow(0 30px 50px rgba(0,0,0,.60));
+}
+
+.capa-conteudo {
+  position: absolute;
+  left: 470px;
+  top: 150px;
+  width: 760px;
+  z-index: 5;
+  
+
+}
+
+.capa-tag,
+.tag {
+  display: inline-block;
+  background: linear-gradient(180deg, #22c55e 0%, #16a34a 100%);
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 11px 30px;
+  border-radius: 999px;
+  margin-bottom: 38px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, .18);
+}
+
+.capa-conteudo h1,
+.capa-recovery h1 {
+  margin: 25px 0 24px;
+  color: #ffffff;
+  font-size: 58px;
+  line-height: 1.08;
+  font-weight: 600;
+  letter-spacing: -.6px;
+  text-shadow: 0 4px 14px rgba(0, 0, 0, .22);
+}
+
+.capa-subtitulo,
+.capa-recovery h2 {
+  margin: 0;
+  color: #ffffff;
+  font-size: 27px;
+  line-height: 1.35;
+  font-weight: 400;
+  opacity: .96;
+}
+
+.capa-logo-cliente {
+  position: absolute;
+  right: 0;
+  bottom: 45px;
+
+  width: 295px;
+  height: 105px;
+
+  background: rgba(255,255,255,.97);
+
+  border-top-left-radius: 62px;
+  border-bottom-left-radius: 62px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 12px 24px;
+
+  z-index: 10;
+
+  box-shadow: 0 16px 36px rgba(0,0,0,.22);
+}
+
+#capaLogoClienteImagem {
+  display: none;
+
+  max-width: 220px;
+  max-height: 105px;
+
+  width: auto;
+  height: auto;
+
+  object-fit: contain;
+}
+
+#capaEmpresa {
+  color: #111827;
+  font-size: 26px;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+
+
+
+.capa-logo-cliente span {
+  color: #555555;
+  font-size: 16px;
+  margin-bottom: 4px;
+}
+
+.capa-logo-cliente strong {
+  color: #111827;
+  font-size: 26px;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.barra-verde {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 14px;
+  background: #22c55e;
+  z-index: 20;
+}
+
+/* =========================
+   PÁGINAS INTERNAS
+========================= */
+
+h2 {
+  font-size: 46px;
+  color: #0f4c81;
+  margin: 0 0 40px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.cards div,
+.invest-grid div {
+  background: #f3f7fb;
+  border-left: 6px solid #0f4c81;
+  border-radius: 14px;
+  padding: 24px;
+}
+
+.cards strong,
+.invest-grid span {
+  display: block;
+  font-size: 18px;
+  color: #64748b;
+  margin-bottom: 10px;
+}
+
+.cards span,
+.invest-grid strong {
+  font-size: 28px;
+  font-weight: 800;
+}
+
+.texto {
+  margin-top: 40px;
+  font-size: 24px;
+  line-height: 1.5;
+}
+
+.invest-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 26px;
+}
+
+.invest-grid .total {
+  grid-column: 1 / -1;
+  background: #0f4c81;
+  color: #ffffff;
+}
+
+.invest-grid .total span {
+  color: #dbeafe;
+}
+
+.invest-grid .total strong {
+  font-size: 56px;
+}
+
+.encerramento {
+  background: linear-gradient(135deg, #ffffff, #eaf3fb);
+}
+
+.encerramento ol {
+  font-size: 30px;
+  line-height: 1.8;
+}
+
+.encerramento strong {
+  display: block;
+  margin-top: 50px;
+  font-size: 38px;
+  color: #0f4c81;
+}
+/* =====================================
+   PÁGINA 2 - COMO FUNCIONA
+===================================== */
+
+.pagina-recovery-completa {
+  padding: 12px 14px 26px;
+  background: #ffffff;
+}
+
+.recovery-top-section {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  height: 300px;
+}
+
+.recovery-step-card {
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  padding: 0px 8px 8px;
+  box-shadow: none;
+  overflow: visible;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.recovery-step-card * {
+  border-left: none;
+}
+
+.recovery-step-header,
+.recovery-step-number {
+  display: none;
+}
+
+.recovery-step-image {
+  height: 245px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.recovery-step-image img {
+  width: 100%;
+  height: 245px;
+  object-fit: contain;
+  display: block;
+  transform: scale(1.15);
+  transform-origin: center center;
+}
+
+.recovery-step-texto {
+  min-height: 58px;
+  text-align: center;
+}
+
+.recovery-step-texto h3 {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.18;
+  color: #061f5f;
+  font-weight: 700;
+}
+
+.recovery-step-texto p {
+  margin: 4px 0 0;
+  font-size: 11px;
+  color: #52627a;
+  line-height: 1.25;
+}
+
+/* =====================================
+   BLOCO INFERIOR
+===================================== */
+
+.recovery-bottom-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  height: 365px;
+  margin-top: 8px;
+}
+
+/* =====================================
+   INVESTIMENTO
+   NÃO ALTERADO
+===================================== */
+
+.recovery-invest-card {
+  background: linear-gradient(135deg, #061b3d 0%, #08285c 55%, #0b3f9b 100%);
+  border-radius: 12px;
+  padding: 22px 28px 16px;
+  color: #ffffff;
+  overflow: hidden;
+}
+
+.recovery-invest-card > span {
+  display: inline-block;
+  color: #22c55e;
+  font-size: 13px;
+  font-weight: 900;
+  text-transform: uppercase;
+  padding-bottom: 5px;
+  border-bottom: 2px solid rgba(34,197,94,.60);
+}
+
+.recovery-invest-card h2 {
+  margin: 12px 0 6px;
+  color: #ffffff;
+  font-size: 21px;
+  line-height: 1.15;
+  font-weight: 700;
+  max-width: 190px;
+}
+
+.recovery-invest-content {
+  display: grid;
+  grid-template-columns: 200px 130px 90px;
+  gap: 10px;
+  align-items: center;
+  margin-top: -22px;
+}
+
+.recovery-invest-content img {
+  width: 280px;
+  height: 215px;
+  object-fit: contain;
+  display: block;
+  margin-left: -56px;
+  margin-top: 4px;
+}
+
+.recovery-invest-info {
+  border-left: 1px solid rgba(255,255,255,.25);
+  padding-left: 22px;
+  min-height: 164px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  top: -30px;
+}
+
+.recovery-invest-info p {
+  font-size: 10.5px;
+  color: #c6d6ee;
+  margin: 0 0 17px;
+  line-height: 1.25;
+  font-weight: 600;
+}
+
+.recovery-invest-info p:last-child {
+  margin-bottom: 0;
+}
+
+.recovery-invest-info strong {
+  display: block;
+  margin-top: 3px;
+  color: #ffffff;
+  font-size: 13.5px;
+  line-height: 1.15;
+  font-weight: 900;
+}
+
+.recovery-price-box {
+  width: 205px;
+  min-height: 220px;
+  background: #ffffff;
+  color: #1f2937;
+  border-radius: 18px;
+  padding: 18px 22px;
+  box-shadow: 0 18px 40px rgba(0,0,0,.24);
+  position: relative;
+  top: -60px;
+}
+
+.recovery-price-box p {
+  margin: 0 0 5px;
+  font-size: 10.5px;
+  color: #475569;
+  font-weight: 400;
+}
+
+.recovery-price-box strong {
+  display: block;
+  font-size: 20px;
+  color: #0f5fd2;
+  margin-bottom: 16px;
+  line-height: 1;
+  font-weight: 400;
+  padding-bottom: 13px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.recovery-price-box b {
+  display: block;
+  font-size: 20px;
+  color: #111827;
+  margin-bottom: 16px;
+  line-height: 1;
+  font-weight: 400;
+  padding-bottom: 13px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.recovery-price-box em {
+  display: block;
+  font-style: normal;
+  font-size: 25px;
+  font-weight: 600;
+  color: #22c55e;
+  line-height: 1;
+}
+
+.recovery-beneficios {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  width: 556px;
+  background: #ffffff;
+  color: #061f5f;
+  border-radius: 9px;
+  padding: 10px 12px;
+  font-size: 8.5px;
+  text-align: center;
+  font-weight: 800;
+  box-shadow: 0 10px 24px rgba(0,0,0,.18);
+  margin-top: -40px;
+}
+
+.recovery-beneficios div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 29px;
+  border-right: 1px solid #e5e7eb;
+}
+
+.recovery-beneficios div:last-child {
+  border-right: 0;
+}
+
+/* =====================================
+   ASSINATURA
+===================================== */
+
+.recovery-contact-card {
+  padding: 20px 30px;
+  position: relative;
+  background: transparent;
+  border-radius: 0;
+  padding: 32px 42px;
+  overflow: hidden;
+}
+
+.recovery-logo {
+  display: block;
+  color: #0f5fd2;
+  font-size: 24px;
+  font-weight: 800;
+  margin-bottom: 24px;
+}
+
+.recovery-contact-card h2 {
+  margin: 0 0 12px;
+  color: #061f5f;
+  font-size: 24px;
+  line-height: 1.2;
+  font-weight: 800;
+}
+
+.recovery-contact-card > p {
+  max-width: 420px;
+  font-size: 15px;
+  line-height: 1.45;
+  color: #475569;
+  margin: 0;
+}
+
+.recovery-assinatura {
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 400px;
+  padding: 14px;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  background: #f8fafc;
+}
+
+.recovery-foto {
+  width: 76px;
+  height: 76px;
+  border-radius: 8px;
+  background: #d1d5db;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-size: 12px;
+}
+
+.recovery-assinatura h3 {
+  margin: 0;
+  color: #0f5fd2;
+  font-size: 17px;
+  font-weight: 800;
+}
+
+.recovery-assinatura span,
+.recovery-assinatura p {
+  margin: 3px 0;
+  font-size: 11px;
+  color: #334155;
+}
+
+/*-- ajustes assinatura --*/
+.recovery-foto {
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.recovery-foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.recovery-assinatura {
+  margin-top: 22px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 400px;
+  padding: 20px 22px;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  background: #f8fafc;
+}
+
+.recovery-foto {
+  width: 100px;
+  height: 100px;
+  min-width: 100px;
+  overflow: hidden;
+  border-radius: 12px;
+  background: transparent;
+  padding: 0;
+}
+
+.recovery-foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
+}
+
+.recovery-assinatura h3 {
+  margin: 0 0 6px;
+  color: #0f5fd2;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.recovery-assinatura span,
+.recovery-assinatura p {
+  margin: 4px 0;
+  font-size: 11px;
+  color: #334155;
+  line-height: 1.25;
+}
+.capa-logo-fiscalio {
+  position: absolute;
+  left: 65px;
+  top: 45px;
+  z-index: 20;
+}
+
+.capa-logo-fiscalio img {
+  width: 180px;
+  height: auto;
+}
+
+.capa-proposta-info {
+  position: absolute;
+  right: 350px;
+  bottom: 70px;
+
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 600;
+
+  z-index: 20;
+
+  text-shadow: 0 2px 8px rgba(0,0,0,.25);
+}
+
+.capa-logo-fiscalio {
+  position: absolute;
+  left: 88px;
+  top: 48px;
+  z-index: 25;
+}
+
+.capa-logo-fiscalio img {
+  width: 175px;
+  height: auto;
+  display: block;
+}
+
+.capa-proposta-info {
+  position: absolute;
+  right: 365px;
+  bottom: 82px;
+  z-index: 25;
+
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  white-space: nowrap;
+
+  text-shadow: 0 2px 8px rgba(0,0,0,.28);
+}

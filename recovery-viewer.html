@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head><meta charset="utf-8">
+  
+  
+  <title>Proposta Recovery Fiscal.io</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/recovery-proposta.css?v=12">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+
+<body>
+
+  <div class="viewer-topo">
+    <button id="btnGerarPdfRecovery">Gerar PDF</button>
+  </div>
+
+  <main id="propostaRecovery">
+
+    <!-- PÁGINA 1 - CAPA -->
+    <section class="slide capa-recovery">
+
+  <div class="capa-logo-fiscalio">
+    <img src="assets/logo-fiscalio-branca.png" alt="Fiscal.io">
+  </div>
+
+  <div class="marca-dagua"></div>
+
+  <div class="capa-arquivos"></div>
+
+  <div class="capa-conteudo">
+
+    <span class="capa-tag">
+      Proposta Comercial
+    </span>
+
+    <h1>
+      Baixa de XML do Passado
+    </h1>
+
+    <div class="capa-subtitulo" id="capaResumo">
+      NF-e | GO | 1.000 Documentos
+    </div>
+
+  </div>
+
+  <div class="capa-proposta-info" id="capaPropostaInfo"></div>
+
+  <div class="capa-logo-cliente" id="boxLogoClienteRecovery">
+    <strong id="capaEmpresa">Empresa</strong>
+    <img id="capaLogoClienteImagem" src="" alt="Logo do cliente">
+  </div>
+
+  <div class="barra-verde"></div>
+
+</section>
+    
+    <!-- PÁGINA 2 - COMO FUNCIONA -->
+  <section class="slide pagina-recovery-completa">
+
+  <div class="recovery-top-section">
+
+    <div class="recovery-step-card">
+      <div class="recovery-step-image">
+        <img src="assets/recovery-step-1.png" alt="">
+      </div>
+
+      <div class="recovery-step-texto">
+        <h3>Importe as chaves de acesso dos documentos fiscais.</h3>
+        <p>*desnecessário para cupons fiscais</p>
+      </div>
+    </div>
+
+    <div class="recovery-step-card">
+      <div class="recovery-step-image">
+        <img src="assets/recovery-step-2.png" alt="">
+      </div>
+
+      <div class="recovery-step-texto">
+        <h3>Realize a recuperação dos XMLs em lote utilizando créditos especiais.</h3>
+      </div>
+    </div>
+
+    <div class="recovery-step-card">
+      <div class="recovery-step-image">
+        <img src="assets/recovery-step-3.png" alt="">
+      </div>
+
+      <div class="recovery-step-texto">
+        <h3>Os documentos são classificados e organizados automaticamente por tipo, período e empresa.</h3>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="recovery-bottom-section">
+
+    <div class="recovery-invest-card">
+      <span>INVESTIMENTO</span>
+      <h2>Recuperação de XMLs do Passado</h2>
+
+      <div class="recovery-invest-content">
+        <img src="assets/xml-file.png" alt="">
+
+        <div class="recovery-invest-info">
+          <p>Documento<br><strong id="investModelo">NFC-e</strong></p>
+          <p>Estado<br><strong id="investUf">Goiás (GO)</strong></p>
+          <p>Quantidade<br><strong id="investQuantidade">1.000 XMLs</strong></p>
+        </div>
+
+        <div class="recovery-price-box">
+          <p>Valor unitário</p>
+          <strong id="investValorUnitario">R$ 0,11</strong>
+
+          <p>Quantidade</p>
+          <b id="investQtdBox">1.000</b>
+
+          <p>Investimento total</p>
+          <em id="investValorTotal">R$ 110,00</em>
+        </div>
+      </div>
+
+      <div class="recovery-beneficios">
+        <div>Recuperação em lote</div>
+        <div>Classificação automática</div>
+        <div>Suporte especializado</div>
+        <div>Exportação dos XMLs</div>
+      </div>
+    </div>
+
+    <div class="recovery-contact-card">
+      <strong class="recovery-logo">fiscal.io</strong>
+
+      <h2>Obrigado por considerar nosso trabalho.</h2>
+
+      <p>
+        Estamos à disposição para auxiliar sua empresa na recuperação segura
+        dos documentos fiscais.
+      </p>
+
+      <div class="recovery-assinatura">
+
+  <div class="recovery-foto" id="vendedorFoto">
+    Foto
+  </div>
+
+  <div>
+    <h3 id="vendedorNome">Adriner Ferreira</h3>
+
+    <span id="vendedorCargo">
+      Consultor Comercial
+    </span>
+
+    <p id="vendedorTelefone">
+      ☎ (37) 9 8834-0179
+    </p>
+
+    <p id="vendedorEmail">
+      ✉ adriner@fiscal.io
+    </p>
+
+    <p id="vendedorSite">
+      🌐 www.fiscal.io
+    </p>
+
+  </div>
+
+</div>
+  </div>
+
+  <div class="barra-verde"></div>
+
+</section>
+
+  </main>
+
+  <script src="js/recovery-viewer.js?v=15"></script>
+</body>
+</html>

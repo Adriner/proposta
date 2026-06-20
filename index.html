@@ -1,0 +1,1201 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head><meta charset="utf-8">
+  
+
+  <title>Gerador de Propostas Fiscal.io</title>
+
+<link rel="stylesheet" href="css/app.css?v=101">
+<link rel="stylesheet" href="https://unpkg.com/tabulator-tables@6.3.1/dist/css/tabulator.min.css">  
+  
+  
+  </head>
+
+<body>
+
+  <main class="app-shell">
+
+    <aside class="app-sidebar">
+
+      <div class="sidebar-logo">
+
+  <img
+    src="assets/logo-fiscalio-branca.png"
+    alt="Fiscal.io"
+    class="logo-sidebar"
+  >
+
+  <br><br>
+
+</div>
+
+      <nav class="app-menu">
+
+        <button type="button" class="menu-item ativo" data-tab="tab-proposta">
+          Nova proposta Planos
+        </button>
+        
+         <button type="button" class="menu-item" data-tab="tab-recovery">
+		  Nova proposta Creditos
+		</button>
+        
+          
+        
+
+        
+
+        <button type="button" class="menu-item" data-tab="tab-valores">
+          Valores e planos
+        </button>
+        
+        <button type="button" class="menu-item" data-tab="tab-funcionalidades">
+ 		 Funcionalidades
+		</button>
+
+        <button type="button" class="menu-item" data-tab="tab-usuarios">
+  		Usuários
+		</button>
+        
+        <button type="button" class="menu-item" data-tab="tab-vendedores">
+          Vendedores
+        </button>
+        
+        <button type="button" class="menu-item" data-tab="tab-downloads">
+  		Calculadora DFe
+		</button>
+        
+        <button
+  class="menu-item"
+  data-tab="tab-dfe-master-v2"
+>
+  DFe Master V2
+</button>
+        
+        <button type="button" class="menu-item" data-tab="tab-dfe-master">
+ 		Cadastro DFe Master
+		</button>
+        
+        <button class="menu-item" data-tab="tab-extrator-chaves">
+  Extrator de Chaves
+</button>
+        
+        <button type="button" class="menu-item" data-tab="tab-propostas">
+          Propostas salvas
+        </button>
+
+        <div class="sidebar-actions">
+
+          <button
+            id="btnLimparInferior"
+            type="button"
+            class="btn-sidebar-secundario">
+            Limpar formulário
+          </button>
+
+          <button
+            id="btnGerarSidebar"
+            type="submit"
+            form="formProposta"
+            class="btn-sidebar-principal">
+            Gerar proposta
+          </button>
+
+        </div>
+
+      </nav>
+
+    </aside>
+
+    <section class="app-main">
+
+      <header class="app-header">
+        <div>
+          <h1>Gerador de Propostas Fiscal.io</h1>
+          <p>Cadastre bases comerciais e gere propostas personalizadas.</p>
+        </div>
+      </header>
+
+      <!-- ABA 1 - NOVA PROPOSTA -->
+      <section class="app-tab ativo" id="tab-proposta">
+
+        <form id="formProposta" class="form-card">
+
+          <h2>Nova proposta comercial</h2>
+
+          <div class="form-section">
+            <h3>Dados da proposta</h3>
+
+            <div class="grid">
+              <label>
+                Número da proposta
+                <input type="text" id="numeroProposta" placeholder="26-1990" required>
+              </label>
+
+              <label>
+                Versão
+                <input type="text" id="versaoProposta" value="v.1" required>
+              </label>
+
+              <label>
+                Data da proposta
+                <input type="date" id="dataProposta" required>
+              </label>
+
+              <label>
+                Validade da proposta
+                <input type="date" id="validade" required>
+              </label>
+            </div>
+          </div>
+
+          <div class="form-section">
+            <h3>Cliente</h3>
+
+            <div class="grid">
+              <label>
+                Empresa
+                <input type="text" id="empresa" placeholder="Nome da empresa" required>
+              </label>
+
+              <label>
+                Contato
+                <input type="text" id="contato" placeholder="Nome do contato" required>
+              </label>
+
+              <label class="full">
+                Logo do cliente
+                <input type="file" id="logoCliente" accept="image/*">
+              </label>
+            </div>
+          </div>
+
+          <div class="form-section">
+            <h3>Diagnóstico comercial</h3>
+
+            <div class="grid">
+              <label class="full">
+                Participantes da reunião
+                <textarea id="participantes" placeholder="Ex.: Guilherme; Adriana; Vitória"></textarea>
+              </label>
+
+              <label class="full">
+                Necessidades identificadas
+                <textarea id="necessidades" placeholder="Digite uma necessidade por linha"></textarea>
+              </label>
+            </div>
+          </div>
+
+          
+          
+          <div class="form-section">
+  <h3>Escopo da solução</h3>
+
+  <div class="grid">
+    <label>
+      Gerar escopo automaticamente?
+      <select id="escopoAutomatico">
+        <option value="sim">Sim</option>
+        <option value="nao">Não</option>
+      </select>
+    </label>
+
+    <label class="full">
+      Itens adicionais do escopo comercial
+      <textarea 
+        id="escopoComercial" 
+        placeholder="Digite um item por linha. Ex.:&#10;Integração SAP ECC&#10;Projeto piloto em 5 unidades&#10;Treinamento remoto para equipe fiscal"
+      ></textarea>
+    </label>
+  </div>
+</div>
+          
+          
+          
+          <div class="form-section">
+                    
+            
+            <h3>Plano e valores</h3>
+
+            <div class="grid">
+              <label>
+                Plano
+                <select id="plano" required>
+                  <option value="">Selecione</option>
+                  <option value="basico">Básico</option>
+                  <option value="avancado">Avançado</option>
+                  <option value="enterprise">Enterprise</option>
+                </select>
+              </label>
+
+              <label>
+                Modelo da proposta
+                <select id="modeloOferta" required>
+                  <option value="local-nuvem">Local + Nuvem</option>
+                  <option value="local">Somente Local</option>
+                  <option value="nuvem">Somente Nuvem</option>
+                </select>
+              </label>
+
+              <label>
+                Módulo NFSe
+                <select id="moduloServico">
+                  <option value="sim">Com NFSe</option>
+                  <option value="nao">Sem NFSe</option>
+                </select>
+              </label>
+
+              <label>
+                Fidelidade / contrato
+                <input type="text" id="fidelidade" placeholder="6 meses">
+              </label>
+
+              <label>
+                CNPJs monitorados
+                <input type="number" id="cnpjs" min="1">
+              </label>
+
+              <label>
+                Usuários
+                <input type="number" id="usuarios" min="1">
+              </label>
+
+              <label>
+                Usuários adicionais
+                <input type="number" id="usuariosAdicionais" min="0" value="0">
+              </label>
+
+              <label>
+                Valor usuário adicional
+                <input type="text" id="usuarioAdicional" placeholder="R$ 150,00">
+              </label>
+
+              <label>
+                Valor local
+                <input type="text" id="valorLocal" placeholder="R$ 980/mês">
+              </label>
+
+              <label>
+                Valor nuvem
+                <input type="text" id="valorNuvem" placeholder="R$ 1.370/mês">
+              </label>
+
+              <label>
+                Implantação
+                <input type="text" id="implantacao" placeholder="R$ 1.500,00">
+              </label>
+            </div>
+          </div>
+
+          <div class="form-section">
+            <h3>Consultor responsável</h3>
+
+            <div class="grid">
+              <label>
+                Consultor
+                <select id="consultorSelecionado">
+                  <option value="adriner">Adriner Ferreira</option>
+                </select>
+              </label>
+
+              <label>
+                Nome do consultor
+                <input type="text" id="consultorNome" value="Adriner Ferreira" required>
+              </label>
+
+              <label>
+                Cargo
+                <input type="text" id="consultorCargo" value="Consultor" required>
+              </label>
+
+              <label>
+                Telefone principal
+                <input type="text" id="consultorTelefone" value="11 4040-4010">
+              </label>
+
+              <label>
+                WhatsApp / telefone direto
+                <input type="text" id="consultorWhatsApp" value="44 3142-4869">
+              </label>
+
+              <label>
+                E-mail
+                <input type="email" id="consultorEmail" value="adriner.ferreira@fiscal.io" required>
+              </label>
+
+              <label class="full">
+                Observações comerciais
+                <textarea id="observacoesComerciais" placeholder="Condição especial, desconto, módulo adicional..."></textarea>
+              </label>
+            </div>
+          </div>
+
+        </form>
+
+      </section>
+
+      <!-- ABA 2 - VENDEDORES -->
+      <section class="app-tab" id="tab-vendedores">
+
+        <div class="form-card">
+          <h2>Cadastro de vendedores</h2>
+
+          <div class="grid">
+            <label>
+              Nome
+              <input type="text" id="cadVendedorNome" placeholder="Adriner Ferreira">
+            </label>
+
+            <label>
+              Cargo
+              <input type="text" id="cadVendedorCargo" placeholder="Consultor">
+            </label>
+
+            <label>
+              Telefone
+              <input type="text" id="cadVendedorTelefone" placeholder="11 4040-4010">
+            </label>
+
+            <label>
+              WhatsApp
+              <input type="text" id="cadVendedorWhatsApp" placeholder="44 3142-4869">
+            </label>
+
+            <label>
+              E-mail
+              <input type="email" id="cadVendedorEmail" placeholder="nome@fiscal.io">
+            </label>
+
+            <label class="full">
+              Foto do vendedor
+              <input type="file" id="cadVendedorFoto" accept="image/*">
+            </label>
+
+            <div class="preview-vendedor" id="previewVendedor">
+              <img id="previewVendedorFoto" alt="Foto do vendedor">
+              <span>Sem foto cadastrada</span>
+            </div>
+          </div>
+
+          <div class="tabela-cadastro" id="listaVendedores">
+            <!-- vendedores cadastrados via JS -->
+          </div>
+        </div>
+
+      </section>
+
+      <!-- ABA 3 - VALORES -->
+      <section class="app-tab" id="tab-valores">
+
+        <div class="form-card">
+          <h2>Cadastro de valores e planos</h2>
+
+          <div class="grid">
+            <label>
+              Plano
+              <select id="cadPlano">
+                <option value="basico">Básico</option>
+                <option value="avancado">Avançado</option>
+                <option value="enterprise">Enterprise</option>
+              </select>
+            </label>
+
+            <label>
+              Valor local
+              <input type="text" id="cadValorLocal" placeholder="R$ 355/mês">
+            </label>
+
+            <label>
+              Valor nuvem
+              <input type="text" id="cadValorNuvem" placeholder="R$ 660/mês">
+            </label>
+
+            <label>
+              Implantação
+              <input type="text" id="cadImplantacao" placeholder="R$ 2.500,00">
+            </label>
+
+            <label>
+              Usuários inclusos
+              <input type="number" id="cadUsuariosInclusos" min="1">
+            </label>
+
+            <label>
+              Valor usuário adicional
+              <input type="text" id="cadUsuarioAdicional" placeholder="R$ 85,00">
+            </label>
+
+            <label class="full">
+              Observações padrão do plano
+              <textarea id="cadObservacoesPlano" placeholder="Digite observações comerciais padrão deste plano"></textarea>
+            </label>
+          </div>
+
+          
+          <div class="tabela-cadastro" id="listaPlanos">
+            <!-- planos cadastrados via JS -->
+          </div>
+        </div>
+
+      </section>
+      
+      
+      
+      <!-- ABA 4 - FUNCIONALIDADES -->
+<section class="app-tab" id="tab-funcionalidades">
+
+  <div class="form-card">
+
+    <h2>Funcionalidades dos Planos</h2>
+
+    <p>
+      Defina o que aparece na página de funcionalidades e o que entra no escopo da página de investimento.
+    </p>
+
+    <div class="tabela-funcionalidades-wrapper">
+
+      <table class="tabela-funcionalidades">
+
+        <thead>
+          <tr>
+            <th rowspan="2" style="width:70px">Ordem</th>
+            <th rowspan="2">Funcionalidade</th>
+            <th rowspan="2" style="width:160px">Categoria</th>
+
+            <th colspan="2">Básico</th>
+            <th colspan="2">Avançado</th>
+            <th colspan="2">Enterprise</th>
+          </tr>
+
+          <tr>
+            <th style="width:90px">Fun.</th>
+            <th style="width:90px">Inv.</th>
+
+            <th style="width:90px">Fun.</th>
+            <th style="width:90px">Inv.</th>
+
+            <th style="width:90px">Fun.</th>
+            <th style="width:90px">Inv.</th>
+          </tr>
+        </thead>
+
+        <tbody id="listaFuncionalidades">
+          <!-- Preenchido automaticamente pelo JavaScript -->
+        </tbody>
+
+      </table>
+
+    </div>
+
+    <div style="margin-top:20px;display:flex;gap:10px;flex-wrap:wrap;">
+
+      <button
+        id="btnAdicionarFuncionalidade"
+        type="button">
+        + Nova funcionalidade
+      </button>
+
+      <button
+        id="btnSalvarFuncionalidades"
+        type="button">
+        Salvar funcionalidades
+      </button>
+
+    </div>
+
+  </div>
+
+</section>
+      
+      <!-- Downloads Especiais -->
+      
+   <section class="app-tab" id="tab-recovery">
+
+  <div class="form-card">
+
+    <h2>Nova proposta comercial</h2>
+
+    <h3 class="form-section-title">Dados da proposta</h3>
+
+    <div class="grid recovery-grid-dados">
+      <label>
+        Número da proposta
+        <input type="text" id="recoveryNumeroProposta" placeholder="Gerado automaticamente" readonly>
+      </label>
+
+      <label>
+        Versão
+        <input type="text" id="recoveryVersao" value="v.1" readonly>
+      </label>
+
+      <label>
+        Status
+        <select id="recoveryStatus">
+          <option value="Rascunho">Rascunho</option>
+          <option value="Enviada">Enviada</option>
+          <option value="Revisada">Revisada</option>
+          <option value="Aprovada">Aprovada</option>
+          <option value="Perdida">Perdida</option>
+        </select>
+      </label>
+
+      <label>
+        Data da proposta
+        <input type="date" id="recoveryDataProposta">
+      </label>
+
+      <label>
+        Validade da proposta
+        <input type="date" id="recoveryValidadeProposta">
+      </label>
+    </div>
+
+    <h3 class="form-section-title">Cliente</h3>
+
+    <div class="grid recovery-grid-cliente">
+      <input type="hidden" id="recoveryClienteId">
+      <input type="hidden" id="recoveryLogoCliente">
+
+      <label>
+        Empresa
+        <input type="text" id="recoveryEmpresa" placeholder="Nome da empresa">
+      </label>
+
+      <label>
+        Contato
+        <input type="text" id="recoveryContato" placeholder="Nome do contato">
+      </label>
+
+      <label>
+        Logo do cliente
+        <input type="file" id="recoveryLogoArquivo" accept="image/*">
+      </label>
+
+      <div class="full" id="recoveryClienteStatus"></div>
+    </div>
+
+    <h3 class="form-section-title">Dados da recuperação</h3>
+
+    <div class="grid recovery-grid-operacao">
+
+      <label>
+        UF
+        <select id="recoveryUf"></select>
+      </label>
+
+      <label>
+        Modelo
+        <select id="recoveryModelo">
+          <option value="NF-e">NF-e</option>
+          <option value="CT-e">CT-e</option>
+          <option value="NFC-e">NFC-e</option>
+          <option value="MDF-e">MDF-e</option>
+        </select>
+      </label>
+
+      <label>
+        Quantidade
+        <input type="number" id="recoveryQuantidade" value="1000">
+      </label>
+
+      <label>
+        Valor unitário
+        <input type="text" id="recoveryValorUnitario">
+      </label>
+
+      <label>
+        Valor total
+        <input type="text" id="recoveryValorTotal" readonly>
+      </label>
+
+      <label>
+        Prazo
+        <input type="text" id="recoveryPrazo" readonly>
+      </label>
+
+      <label>
+        Certificado
+        <input type="text" id="recoveryCertificado" readonly>
+      </label>
+
+      <label class="full">
+        Alerta vendedor
+        <textarea id="recoveryAlerta" readonly></textarea>
+      </label>
+
+      <label class="full">
+        Observações comerciais
+        <textarea id="recoveryObservacao" placeholder="Condição especial, observação para proposta..."></textarea>
+      </label>
+
+    </div>
+
+    <div class="actions">
+      <button type="button" class="btn-secundario" id="btnNovoRecovery">
+        Novo Recovery
+      </button>
+
+      <button type="button" class="btn-secundario" id="btnNovaVersaoRecovery">
+        Nova Versão
+      </button>
+
+      <button type="button" class="btn-principal" id="btnSalvarRecovery">
+        Salvar Recovery
+      </button>
+    </div>
+
+    <div class="tabela-cadastro" id="listaRecovery"></div>
+
+  </div>
+
+</section>
+      
+      
+      <!-- extrator -->
+<section class="app-tab" id="tab-extrator-chaves">
+
+  <div class="form-card extrator-card">
+
+    <h2>Extrator de Chaves de Acesso</h2>
+
+    <p>
+      Envie vários arquivos XML ou TXT para extrair chaves de acesso de NF-e, NFC-e, CT-e, CT-e OS e MDF-e.
+    </p>
+
+    <div class="keys-dropzone" id="keysDropzone">
+
+      <strong>Arraste os arquivos aqui</strong>
+
+      <span>
+        ou clique para selecionar os arquivos
+      </span>
+
+      <input
+        type="file"
+        id="keysFiles"
+        multiple
+        accept=".xml,.txt"
+        hidden
+      >
+
+    </div>
+
+    <div class="keys-opcoes">
+
+      <label>
+        <input
+          type="radio"
+          name="tipoOperacao"
+          value="entrada"
+          checked
+        >
+        Entrada
+      </label>
+
+      <label>
+        <input
+          type="radio"
+          name="tipoOperacao"
+          value="saida"
+        >
+        Saída
+      </label>
+
+      <label>
+        <input
+          type="radio"
+          name="tipoOperacao"
+          value="ambos"
+        >
+        Ambos
+      </label>
+
+    </div>
+
+    <div class="actions">
+
+      <button
+        type="button"
+        class="btn-secundario"
+        onclick="baixarCSVChaves()"
+      >
+        Baixar CSV Chaves
+      </button>
+
+      <button
+        type="button"
+        class="btn-secundario"
+        onclick="baixarCSVSaltos()"
+      >
+        Baixar CSV Saltos
+      </button>
+
+      <button
+        type="button"
+        class="btn-principal"
+        onclick="processarArquivosChaves()"
+      >
+        Extrair Chaves
+      </button>
+
+    </div>
+
+    <p
+      id="keysProgress"
+      class="keys-progress"
+    >
+      Nenhum arquivo selecionado.
+    </p>
+
+    <div class="keys-resumo">
+
+      <div>
+        <strong id="totalChaves">0</strong>
+        <span>Encontradas</span>
+      </div>
+
+      <div>
+        <strong id="totalUnicas">0</strong>
+        <span>Únicas</span>
+      </div>
+
+      <div>
+        <strong id="totalDuplicadas">0</strong>
+        <span>Duplicadas</span>
+      </div>
+
+      <div>
+        <strong id="totalSaltos">0</strong>
+        <span>Saltos</span>
+      </div>
+
+    </div>
+
+    <label class="full">
+
+      Busca geral
+
+      <input
+        type="text"
+        id="buscaGlobalChaves"
+        placeholder="Buscar por chave, CNPJ, modelo, número, arquivo..."
+        oninput="buscarGlobalChaves()"
+      >
+
+    </label>
+
+    <h3 class="keys-section-title">
+      Chaves encontradas
+    </h3>
+
+    <div class="keys-table-wrap">
+      <div id="gridChaves"></div>
+    </div>
+
+    <h3 class="keys-section-title">
+      Saltos de numeração
+    </h3>
+
+    <div class="keys-table-wrap">
+      <div id="gridSaltos"></div>
+    </div>
+
+  </div>
+
+</section>
+      
+       <!-- DfeMaster v2 -->
+      
+<section class="app-tab" id="tab-dfe-master-v2">
+  <div class="form-card">
+    <h2>DFe Master V2</h2>
+    <p>Cadastro das regras comerciais de recuperação por UF.</p>
+
+    <div class="form-grid">
+
+      <label>
+        UF
+        <select id="dfeV2Uf">
+          <option value="">Selecione</option>
+          <option>AC</option><option>AL</option><option>AP</option><option>AM</option>
+          <option>BA</option><option>CE</option><option>DF</option><option>ES</option>
+          <option>GO</option><option>MA</option><option>MT</option><option>MS</option>
+          <option>MG</option><option>PA</option><option>PB</option><option>PR</option>
+          <option>PE</option><option>PI</option><option>RJ</option><option>RN</option>
+          <option>RS</option><option>RO</option><option>RR</option><option>SC</option>
+          <option>SP</option><option>SE</option><option>TO</option>
+        </select>
+      </label>
+
+      <label>
+        Certificado
+        <input type="text" id="dfeV2Certificado" value="A1/A3">
+      </label>
+
+      <label>
+        Valor XML
+        <input type="number" step="0.001" id="dfeV2ValorXml" value="0.11">
+      </label>
+
+      <label>
+        Prazo com chave
+        <input type="text" id="dfeV2PrazoComChave" value="12 anos">
+      </label>
+
+      <label>
+        Prazo sem chave
+        <input type="text" id="dfeV2PrazoSemChave" value="5 anos">
+      </label>
+
+      <label>
+        Prazo NFC-e
+        <input type="text" id="dfeV2PrazoNfce" value="Conforme disponibilidade da SEFAZ">
+      </label>
+
+    </div>
+
+    <div class="dfe-checks">
+      <label><input type="checkbox" id="dfeV2EntradaSemChave"> Entrada sem chave</label>
+      <label><input type="checkbox" id="dfeV2SaidaSemChave"> Saída sem chave</label>
+      <label><input type="checkbox" id="dfeV2EntradaComChave" checked> Entrada com chave</label>
+      <label><input type="checkbox" id="dfeV2SaidaComChave" checked> Saída com chave</label>
+      <label><input type="checkbox" id="dfeV2NfceSemChave"> NFC-e sem chave</label>
+      <label><input type="checkbox" id="dfeV2Ativo" checked> Ativo</label>
+    </div>      
+      </div>
+</section>
+      <!-- Calculadora DFe -->
+      
+   
+<section class="app-tab" id="tab-downloads">
+
+  <div class="form-card calculadora-dfe-card">
+
+    <div class="calculadora-topo">
+      <div>
+        <h2>Calculadora DFe</h2>
+        <p>Monte um ou mais cálculos de Recovery e gere o diagnóstico comercial.</p>
+      </div>
+
+      <button type="button" id="btnAdicionarCalculoDfe" class="btn-azul">
+        + Adicionar cálculo
+      </button>
+    </div>
+
+    <div id="listaCalculosDfe" class="lista-calculos-dfe">
+
+      <div class="calculo-dfe-item" data-index="0">
+
+        <div class="grid calculo-dfe-grid">
+
+          <label>
+            UF
+            <select class="downloadUf" id="downloadUf"></select>
+          </label>
+
+          <label>
+  Tipo de Recuperação
+  <select class="downloadModelo">
+    <option value="entradaSemChave">Entrada sem chave</option>
+    <option value="saidaSemChave">Saída sem chave</option>
+    <option value="entradaComChave">Entrada com chave</option>
+    <option value="saidaComChave">Saída com chave</option>
+    <option value="nfceSemChave">NFC-e sem chave</option>
+  </select>
+</label>
+
+          <label>
+            Quantidade
+            <input type="number" class="downloadQuantidade" value="1000">
+          </label>
+
+          <label>
+            Valor Unitário
+            <input type="text" class="downloadsValorUnitario">
+          </label>
+
+          <label>
+            Total
+            <input type="text" class="downloadValorItem" value="R$ 0,00" readonly>
+          </label>
+
+          <button type="button" class="btn-remover-calculo">
+            Remover
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="calculadora-dfe-resumo">
+
+      <div class="resultado-download destaque-total">
+        <h3>Resultado Financeiro</h3>
+        <p>Total do projeto</p>
+        <strong id="downloadValorTotal">R$ 0,00</strong>
+      </div>
+
+      <div class="resultado-download">
+        <h3>Diagnóstico Comercial</h3>
+
+        <p>Certificado: <strong id="downloadCertificado">-</strong></p>
+        <p>Prazo com chave: <strong id="downloadPrazoComChave">-</strong></p>
+        <p>Prazo sem chave: <strong id="downloadPrazoSemChave">-</strong></p>
+        <p>Prazo NFC-e: <strong id="downloadPrazoNfce">-</strong></p>
+      </div>
+
+      <div class="resultado-download">
+        <h3>Capacidade de Recuperação</h3>
+
+        <p>Recuperamos: <strong id="downloadRecuperamos">-</strong></p>
+        <p>Não recuperamos: <strong id="downloadNaoRecuperamos">-</strong></p>
+      </div>
+
+    </div>
+
+    <div class="calculadora-dfe-textos">
+
+      <div class="resultado-download">
+        <h3>Observações da UF</h3>
+
+        <textarea
+          id="downloadObservacao"
+          rows="4"
+          placeholder="Observações comerciais da UF selecionada..."></textarea>
+      </div>
+
+      <div class="resultado-download">
+        <h3>Alerta para o Vendedor</h3>
+
+        <textarea
+          id="downloadAlerta"
+          rows="4"
+          placeholder="Alertas internos sobre certificado, chave, prazo ou restrição..."></textarea>
+      </div>
+
+    </div>
+
+    <div class="acoes-download">
+      <button type="button" id="btnSalvarObservacaoDownload" class="btn-azul">
+        Salvar observações da UF
+      </button>
+
+      <button type="button" id="btnGerarDiagnosticoDownload" class="btn-verde">
+        Gerar diagnóstico
+      </button>
+    </div>
+
+  </div>
+
+</section>   
+      
+      
+      <!-- Cadastro DFE Master -->
+      <section class="app-tab" id="tab-dfe-master">
+  <div class="form-card">
+    <h2>DFe Master</h2>
+    <p>Cadastre regras comerciais de recuperação de XML por UF, modelo e operação.</p>
+
+    <div class="grid">
+      <label>
+        UF
+        <input type="text" id="dfeUf" maxlength="2" placeholder="SP">
+      </label>
+
+      <label>
+        Modelo
+        <select id="dfeModelo">
+          <option value="NF-e">NF-e</option>
+          <option value="CT-e">CT-e</option>
+          <option value="NFC-e">NFC-e</option>
+          <option value="MDF-e">MDF-e</option>
+        </select>
+      </label>
+
+      <label>
+        Operação
+        <input type="text" id="dfeOperacao" placeholder="Recuperação">
+      </label>
+
+      <label>
+        Certificado
+        <input type="text" id="dfeCertificado" placeholder="A1/A3">
+      </label>
+
+      <label>
+        Prazo
+        <input type="text" id="dfePrazo" placeholder="100 dias">
+      </label>
+
+      <label>
+        Valor unitário
+        <input type="number" step="0.001" id="dfeValor" placeholder="0.009">
+      </label>
+
+      <label>
+        Ativo
+        <input type="checkbox" id="dfeAtivo" checked>
+      </label>
+
+      <label class="full">
+        Observação
+        <textarea id="dfeObservacao"></textarea>
+      </label>
+
+      <label class="full">
+        Alerta vendedor
+        <textarea id="dfeAlerta"></textarea>
+      </label>
+    </div>
+
+    <div class="actions">
+      <button type="button" class="btn-secundario" id="btnNovoDfe">
+        Nova regra
+      </button>
+
+      <button type="button" class="btn-principal" id="btnSalvarDfe">
+        Salvar regra
+      </button>
+    </div>
+
+    <div class="tabela-cadastro" id="listaDfeMaster"></div>
+  </div>
+</section>
+
+      <!-- ABA 5 - PROPOSTAS SALVAS -->
+      <section class="app-tab" id="tab-propostas">
+
+        <div class="form-card">
+          <h2>Propostas Salvas</h2>
+
+          <div id="dashboardComercial"></div>
+
+          
+          <div class="barra-filtros">
+
+  <input
+    type="text"
+    id="filtroPropostas"
+    placeholder="Pesquisar..."
+  >
+
+  <select id="filtroVendedor">
+    <option value="">Vendedor</option>
+  </select>
+
+  <select id="filtroPlano">
+    <option value="">Plano</option>
+    <option value="basico">Básico</option>
+    <option value="avancado">Avançado</option>
+    <option value="enterprise">Enterprise</option>
+  </select>
+
+  <select id="filtroStatus">
+    <option value="">Status</option>
+  </select>
+
+  <select id="filtroMes">
+    <option value="">Mês</option>
+  </select>
+
+  <select id="filtroAno">
+    <option value="">Ano</option>
+  </select>
+
+  <button id="btnLimparFiltros">
+    Limpar
+  </button>
+
+</div>
+
+          <div class="tabela-cadastro" id="listaPropostas">
+            <!-- propostas salvas via JS -->
+          </div>
+        </div>
+
+      </section>
+
+      
+      
+      <section class="app-tab" id="tab-usuarios">
+  <div class="form-card">
+    <h2>Usuários</h2>
+    <p>Cadastre e controle os acessos ao painel administrativo.</p>
+
+    <div class="form-section">
+      <h3 id="tituloFormularioUsuario">Novo usuário</h3>
+
+      <div class="grid">
+        <label>
+          Nome
+          <input type="text" id="usuarioNome">
+        </label>
+
+        <label>
+          E-mail
+          <input type="email" id="usuarioEmail">
+        </label>
+
+        <label>
+          Usuário
+          <input type="text" id="usuarioLogin">
+        </label>
+
+        <label>
+          Senha
+          <input type="password" id="usuarioSenha" placeholder="Preencha apenas se for alterar">
+        </label>
+
+        <label>
+          Perfil
+          <select id="usuarioPerfil">
+            <option value="admin">Admin</option>
+            <option value="gestor">Gestor</option>
+            <option value="comercial">Comercial</option>
+            <option value="consulta">Consulta</option>
+          </select>
+        </label>
+
+        <label>
+          Ativo
+          <input type="checkbox" id="usuarioAtivo" checked>
+        </label>
+      </div>
+
+      <div class="actions">
+        <button type="button" class="btn-secundario" id="btnNovoUsuario">
+          Novo usuário
+        </button>
+
+        <button type="button" class="btn-principal" id="btnSalvarUsuario" onclick="salvarUsuario()">
+          Salvar usuário
+        </button>
+      </div>
+    </div>
+
+    <div class="tabela-cadastro" id="listaUsuarios"></div>
+  </div>
+</section>
+      
+      
+      
+      
+      
+      
+      
+    </section>
+
+  </main>
+<script src="js/auth.js?v=108"></script>
+<script src="js/calculadora-dfe.js?v=1"></script>
+ <script src="js/app.js?v=108"></script>
+<script src="js/usuarios.js?v=108"></script>
+<script src="js/dfe-master.js?v=108"></script>
+<script src="js/downloads-especiais.js?v=108"></script>
+<script src="js/recovery.js?v=108"></script>
+<script src="js/logout.js?v=108"></script>
+<script src="https://unpkg.com/tabulator-tables@6.3.1/dist/js/tabulator.min.js"></script>
+<script src="js/extrator-chaves.js?v=4"></script>
+</body>
+</html>

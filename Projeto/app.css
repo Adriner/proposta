@@ -1,0 +1,938 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --azul-escuro: #002c4b;
+  --azul-claro: #00b9fa;
+  --texto: #0f172a;
+  --muted: #64748b;
+  --borda: #d7e2ee;
+  --fundo: #eef3f8;
+  --card: #ffffff;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--fundo);
+  color: var(--texto);
+}
+
+.app-shell {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 300px 1fr;
+}
+
+.app-sidebar {
+  background: var(--azul-escuro);
+  color: #ffffff;
+  padding: 28px 24px;
+}
+
+
+
+.sidebar-actions{
+  position:absolute;
+  bottom:24px;
+  left:20px;
+  right:20px;
+
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+.btn-sidebar-secundario{
+  width:100%;
+  height:44px;
+
+  background:#ffffff;
+  color:#002c4b;
+
+  border:none;
+  border-radius:12px;
+
+  font-weight:700;
+}
+
+.btn-sidebar-principal{
+  width:100%;
+  height:48px;
+
+  background:#00b9fa;
+  color:#002c4b;
+
+  border:none;
+  border-radius:12px;
+
+  font-weight:800;
+}
+.app-brand {
+  margin-bottom: 8px;
+}
+
+.app-brand strong {
+  display: block;
+  font-size: 24px;
+}
+
+.app-brand span {
+  display: block;
+  margin-top: 6px;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.app-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.menu-item {
+  width: 100%;
+  text-align: left;
+  border: none;
+  border-radius: 12px;
+  padding: 13px 14px;
+  background: transparent;
+  color: #d8edf7;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.menu-item:hover,
+.menu-item.ativo {
+  background: var(--azul-claro);
+  color: var(--azul-escuro);
+}
+
+.app-main {
+  padding: 26px 36px;
+}
+
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.app-header h1 {
+  margin: 0 0 6px;
+  font-size: 25px;
+}
+
+.app-header p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.app-tab {
+  display: none;
+}
+
+.app-tab.ativo {
+  display: block;
+}
+
+.form-card {
+  background: var(--card);
+  border-radius: 18px;
+  padding: 22px 28px;
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.1);
+}
+
+.form-card h2 {
+  margin: 0 0 16px;
+  font-size: 22px;
+}
+
+.form-section {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid #e2e8f0;
+}
+
+.form-section:first-of-type {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: none;
+}
+
+.form-section h3 {
+  margin: 0 0 8px;
+  font-size: 14px;
+  color: var(--azul-escuro);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px 14px;
+  align-items: end;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #334155;
+}
+
+label.full {
+  grid-column: 1 / -1;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  padding: 0 12px;
+  font-size: 13px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--texto);
+  background: #ffffff;
+}
+
+input,
+select {
+  height: 34px;
+}
+
+textarea {
+  min-height: 60px;
+  max-height: 72px;
+  padding: 9px 11px;
+  resize: vertical;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--azul-claro);
+  box-shadow: 0 0 0 3px rgba(0, 185, 250, 0.18);
+}
+
+input[type="file"] {
+  height: 34px;
+  padding: 5px 9px;
+}
+
+.actions {
+  margin-top: 14px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+button {
+  border: none;
+  border-radius: 12px;
+  font-weight: 800;
+  font-size: 14px;
+  padding: 0 22px;
+  height: 38px;
+  cursor: pointer;
+}
+
+.btn-principal {
+  background: var(--azul-claro);
+  color: var(--azul-escuro);
+  min-width: 180px;
+}
+
+.btn-principal:hover {
+  background: #0098d4;
+}
+
+.btn-secundario {
+  background: #ffffff;
+  color: #475569;
+  border: 1px solid #cbd5e1;
+  min-width: 170px;
+}
+
+.btn-secundario:hover {
+  background: #f8fafc;
+}
+
+/* ==============================
+   NOVA PROPOSTA
+============================== */
+
+#tab-proposta .form-card {
+  padding-bottom: 20px;
+}
+
+#tab-proposta .form-section:nth-of-type(1) .grid {
+  grid-template-columns: 150px 90px 140px 140px;
+}
+
+#tab-proposta .form-section:nth-of-type(2) .grid {
+  grid-template-columns: 1.4fr 1fr 1fr;
+}
+
+#tab-proposta .form-section:nth-of-type(2) label.full {
+  grid-column: span 1;
+}
+
+#tab-proposta .form-section:nth-of-type(3) .grid {
+  grid-template-columns: 1fr 1.5fr;
+}
+
+#tab-proposta .form-section:nth-of-type(3) label.full {
+  grid-column: span 1;
+}
+
+#tab-proposta .form-section:nth-of-type(4) .grid {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+
+#tab-proposta .form-section:nth-of-type(4) label {
+  min-width: 0;
+}
+
+#tab-proposta .form-section:nth-of-type(5) .grid {
+  grid-template-columns: 1.1fr 1.2fr 0.9fr 1fr 1fr 1.4fr;
+}
+
+#tab-proposta .form-section:nth-of-type(5) label.full {
+  grid-column: 1 / -1;
+}
+
+.actions-proposta {
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid #e2e8f0;
+}
+
+/* ==============================
+   VENDEDORES
+============================== */
+
+.preview-vendedor {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-height: 58px;
+  padding: 10px 14px;
+  border: 1px dashed #cbd5e1;
+  border-radius: 12px;
+  background: #f8fafc;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.preview-vendedor img {
+  display: none;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.preview-vendedor.com-foto img {
+  display: block;
+}
+
+.preview-vendedor.com-foto span {
+  color: var(--azul-escuro);
+  font-size: 0;
+}
+
+.preview-vendedor.com-foto span::before {
+  content: "Foto cadastrada";
+  font-size: 13px;
+}
+
+#tab-vendedores .form-card {
+  padding: 24px 28px;
+}
+
+#tab-vendedores .form-card h2 {
+  margin-bottom: 18px;
+  font-size: 22px;
+}
+
+#tab-vendedores .grid {
+  grid-template-columns: 1.4fr 0.9fr 0.9fr 0.9fr;
+  gap: 14px 16px;
+}
+
+#tab-vendedores label:nth-child(5) {
+  grid-column: span 2;
+}
+
+#tab-vendedores label:nth-child(6) {
+  grid-column: span 2;
+}
+
+#tab-vendedores .actions {
+  margin-top: 16px;
+}
+
+/* ==============================
+   TABELAS DE CADASTRO
+============================== */
+
+.tabela-cadastro {
+  margin-top: 18px;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #ffffff;
+}
+
+.tabela-cadastro:empty {
+  display: none;
+}
+
+.tabela-cadastro .linha {
+  display: grid;
+  grid-template-columns: 1.2fr 0.9fr 0.9fr 1.2fr;
+  gap: 12px;
+  min-height: 42px;
+  padding: 10px 14px;
+  align-items: center;
+  border-bottom: 1px solid #e2e8f0;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.tabela-cadastro .linha:last-child {
+  border-bottom: none;
+}
+
+.tabela-cadastro .linha:hover {
+  background: #f1f9ff;
+}
+
+.tabela-cadastro strong {
+  color: var(--azul-escuro);
+  font-size: 13px;
+}
+
+.tabela-cadastro span {
+  font-size: 13px;
+}
+
+/* ==============================
+   RESPONSIVO
+============================== */
+
+@media (max-width: 1200px) {
+  .app-shell {
+    grid-template-columns: 260px 1fr;
+  }
+
+  #tab-proposta .form-section:nth-of-type(4) .grid,
+  #tab-proposta .form-section:nth-of-type(5) .grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 900px) {
+  .app-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .app-sidebar {
+    position: static;
+  }
+
+  .app-menu {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .app-main {
+    padding: 22px;
+  }
+
+  .app-header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .grid,
+  #tab-proposta .form-section:nth-of-type(1) .grid,
+  #tab-proposta .form-section:nth-of-type(2) .grid,
+  #tab-proposta .form-section:nth-of-type(3) .grid,
+  #tab-proposta .form-section:nth-of-type(4) .grid,
+  #tab-proposta .form-section:nth-of-type(5) .grid,
+  #tab-vendedores .grid {
+    grid-template-columns: 1fr;
+  }
+
+  #tab-proposta .form-section:nth-of-type(2) label.full,
+  #tab-proposta .form-section:nth-of-type(3) label.full {
+    grid-column: 1 / -1;
+  }
+}
+/* ==============================
+   BOTÕES NA SIDEBAR
+============================== */
+
+.app-sidebar {
+  position: relative;
+}
+
+.sidebar-actions {
+  position: absolute;
+  left: 20px;
+  right: 20px;
+  bottom: 24px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sidebar-actions button {
+  width: 100%;
+  height: 44px;
+  border-radius: 12px;
+}
+
+.sidebar-actions .btn-secundario {
+  background: #ffffff;
+  color: #002c4b;
+  border: 1px solid rgba(255,255,255,.35);
+}
+
+.sidebar-actions .btn-principal {
+  background: #00b9fa;
+  color: #002c4b;
+}
+/* ==============================
+   PROPOSTAS SALVAS - TABELA COMPACTA FORÇADA
+============================== */
+
+#listaPropostas {
+  display: block;
+  width: 100%;
+}
+
+#listaPropostas .linha-proposta {
+  display: grid !important;
+
+  grid-template-columns:
+    90px
+    minmax(220px, 1.5fr)
+    160px
+    120px
+    80px
+    170px
+    100px
+    200px !important;
+
+  align-items: center !important;
+  gap: 10px !important;
+
+  width: 100% !important;
+  min-height: 34px !important;
+
+  padding: 5px 10px !important;
+  margin: 0 !important;
+
+  border-bottom: 1px solid #e5e7eb !important;
+  box-sizing: border-box !important;
+}
+
+#listaPropostas .cabecalho-propostas {
+  background: #f8fafc !important;
+  border-bottom: 1px solid #dbe4ee !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  color: #334155 !important;
+}
+
+#listaPropostas .linha-proposta strong,
+#listaPropostas .linha-proposta span,
+#listaPropostas .linha-proposta button {
+  min-width: 0 !important;
+}
+
+#listaPropostas .linha-proposta span,
+#listaPropostas .linha-proposta strong {
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+  font-size: 12px !important;
+}
+
+#listaPropostas .coluna-ordenavel {
+  appearance: none !important;
+  border: 0 !important;
+  background: transparent !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  text-align: left !important;
+  font: inherit !important;
+  font-weight: 700 !important;
+  color: #334155 !important;
+  cursor: pointer !important;
+  white-space: nowrap !important;
+}
+
+#listaPropostas .coluna-ordenavel:hover {
+  color: #00b9fa !important;
+}
+
+#listaPropostas .linha-acoes {
+  display: flex !important;
+  gap: 4px !important;
+  justify-content: flex-end !important;
+  flex-wrap: nowrap !important;
+}
+
+#listaPropostas .btn-mini {
+  border: 0 !important;
+  border-radius: 6px !important;
+
+  padding: 4px 6px !important;
+
+  font-size: 11px !important;
+  line-height: 1 !important;
+  font-weight: 600 !important;
+
+  cursor: pointer !important;
+
+  white-space: nowrap !important;
+
+  background: #eef2f7 !important;
+  color: #0f172a !important;
+}
+
+#listaPropostas .btn-mini:hover {
+  background: #00b9fa !important;
+  color: #ffffff !important;
+}
+.campo-pesquisa {
+  width: 100%;
+  margin-bottom: 16px;
+
+  padding: 10px 14px;
+
+  border: 1px solid #dbe4ee;
+  border-radius: 10px;
+
+  font-size: 14px;
+
+  background: #ffffff;
+}
+
+.campo-pesquisa:focus {
+  outline: none;
+  border-color: #00b9fa;
+}
+.badge-versao {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 48px;
+
+    padding: 4px 10px;
+
+    border-radius: 999px;
+
+    background: #e8f1ff;
+
+    color: #0b5ed7;
+
+    font-size: 12px;
+
+    font-weight: 700;
+}
+.dashboard-comercial {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.card-status {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 14px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,.05);
+}
+
+.card-status strong {
+  display: block;
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.card-status span {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.card-status.total {
+  background: #1550cf;
+  color: #fff;
+}
+
+.card-status.rascunho strong {
+  color: #d4a100;
+}
+
+.card-status.enviada strong {
+  color: #2563eb;
+}
+
+.card-status.negociacao strong {
+  color: #ea580c;
+}
+
+.card-status.fechada strong {
+  color: #16a34a;
+}
+
+.card-status.perdida strong {
+  color: #dc2626;
+}
+.dashboard-financeiro {
+  display: grid !important;
+  grid-template-columns: repeat(4, minmax(160px, 1fr)) !important;
+  gap: 12px !important;
+  width: 100% !important;
+  margin: 0 0 18px 0 !important;
+}
+
+.card-financeiro {
+  background: #ffffff !important;
+  border: 1px solid #e5e7eb !important;
+  border-radius: 12px !important;
+  padding: 14px !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,.05) !important;
+}
+
+.card-financeiro span {
+  display: block !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  color: #64748b !important;
+  margin-bottom: 6px !important;
+}
+
+.card-financeiro strong {
+  display: block !important;
+  font-size: 20px !important;
+  font-weight: 800 !important;
+  color: #0f172a !important;
+}
+
+.card-financeiro small {
+  display: block !important;
+  margin-top: 4px !important;
+  font-size: 11px !important;
+  color: #64748b !important;
+}
+
+.card-financeiro.pipeline {
+  border-left: 5px solid #ea580c !important;
+}
+
+.card-financeiro.fechado {
+  border-left: 5px solid #16a34a !important;
+}
+
+.card-financeiro.perdido {
+  border-left: 5px solid #dc2626 !important;
+}
+
+.card-financeiro.implantacao {
+  border-left: 5px solid #1550cf !important;
+}
+.dashboard-comercial {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(150px, 1fr));
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.card-status {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 96px;
+  padding: 14px 12px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.card-status-esquerda,
+.card-status-direita {
+  width: 100%;
+}
+
+.card-status-titulo {
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+.card-status-quantidade {
+  font-size: 28px;
+  font-weight: 800;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.card-fin-linha {
+  display: block;
+  font-size: 11px;
+  line-height: 1.25;
+  margin-top: 3px;
+  gap: 6px;
+}
+
+.card-fin-linha span {
+  display: block;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.card-fin-linha strong {
+  display: block;
+  font-size: 18px !important;
+  font-weight: 800;
+  line-height: 1.1;
+  white-space: nowrap;
+}
+.card-status {
+  min-height: 74px;
+  padding: 10px 12px;
+  border-radius: 14px;
+}
+
+.card-status-topo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.card-status-titulo {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.card-status-quantidade {
+  font-size: 20px !important;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.card-status-direita {
+  width: 100%;
+}
+
+.card-fin-linha {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 3px;
+}
+
+.card-fin-linha span {
+  font-size: 10px;
+  font-weight: 500;
+}
+
+.card-fin-linha strong {
+  font-size: 12px !important;
+  font-weight: 600;
+}
+.barra-filtros{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    margin-bottom:12px;
+    flex-wrap:nowrap;
+}
+
+.barra-filtros input,
+.barra-filtros select{
+    height:36px;
+    border:1px solid #cbd5e1;
+    border-radius:10px;
+    padding:0 12px;
+    font-size:12px;
+}
+
+#filtroPropostas{
+    flex:1;
+    min-width:280px;
+}
+
+#filtroVendedor{
+    width:140px;
+}
+
+#filtroPlano{
+    width:110px;
+}
+
+#filtroStatus{
+    width:120px;
+}
+
+#filtroMes{
+    width:90px;
+}
+
+#filtroAno{
+    width:80px;
+}
+
+#btnLimparFiltros{
+    height:36px;
+    padding:0 14px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    white-space:nowrap;
+}
+.sidebar-logo {
+  text-align: left;
+  padding: 20px 20px;
+}
+
+.logo-sidebar {
+  display: block;
+  width: 160px;
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.sidebar-logo span {
+  display: block;
+  font-size: 13px;
+  color: rgba(255,255,255,.85);
+}

@@ -1,0 +1,132 @@
+[
+    {
+        "id": 1,
+        "dataHora": "2026-06-13 17:09:02",
+        "usuario": "Adriner Ferreira",
+        "perfil": "admin",
+        "modulo": "Usuários",
+        "acao": "Edição",
+        "registro": "Dico",
+        "detalhes": "Usuário atualizado: Negolin | Login anterior: Dico | Login novo: Dico | E-mail anterior: teste@teste.com | E-mail novo: teste@teste.com | Perfil anterior: gestor | Perfil novo: gestor | Status anterior: ativo | Status novo: ativo"
+    },
+    {
+        "id": 2,
+        "dataHora": "2026-06-13 17:09:02",
+        "usuario": "Adriner Ferreira",
+        "perfil": "admin",
+        "modulo": "Usuários",
+        "acao": "Edição",
+        "registro": "Dico",
+        "detalhes": "Usuário atualizado: Negolin | Login anterior: Dico | Login novo: Dico | E-mail anterior: teste@teste.com | E-mail novo: teste@teste.com | Perfil anterior: gestor | Perfil novo: gestor | Status anterior: ativo | Status novo: ativo"
+    },
+    {
+        "id": 3,
+        "dataHora": "2026-06-13 17:21:07",
+        "usuario": "Adriner Ferreira",
+        "perfil": "admin",
+        "modulo": "DFe Master",
+        "acao": "Edição",
+        "registro": "GO - NFC-e",
+        "detalhes": "Regra alterada"
+    },
+    {
+        "id": 4,
+        "dataHora": "2026-06-13 18:07:48",
+        "usuario": "Adriner Ferreira",
+        "perfil": "admin",
+        "modulo": "Recovery",
+        "acao": "Cadastro",
+        "registro": "Adriner",
+        "detalhes": "Novo orçamento Recovery criado."
+    },
+    {
+        "id": 5,
+        "dataHora": "2026-06-13 18:42:49",
+        "usuario": "Adriner Ferreira",
+        "perfil": "admin",
+        "modulo": "Recovery",
+        "acao": "Cadastro",
+        "registro": "Junior",
+        "detalhes": "Novo orçamento Recovery criado."
+    },
+    {
+        "id": 6,
+        "dataHora": "2026-06-14 20:26:39",
+        "usuario": "Adriner Ferreira",
+        "perfil": "admin",
+        "modulo": "Recovery",
+        "acao": "Cadastro",
+        "registro": "Casa da Banha",
+        "detalhes": "Novo orçamento Recovery criado."
+    },
+    {
+        "id": 7,
+        "dataHora": "2026-06-14 21:13:26",
+        "usuario": "Adriner Ferreira",
+        "perfil": "admin",
+        "modulo": "Recovery",
+        "acao": "Cadastro",
+        "registro": "Minha Casa",
+        "detalhes": "Novo orçamento Recovery criado. Proposta 26-1992 v.1."
+    },
+    {
+        "id": 8,
+        "dataHora": "2026-06-14 21:26:17",
+        "usuario": "Adriner Ferreira",
+        "perfil": "admin",
+        "modulo": "Recovery",
+        "acao": "Cadastro",
+        "registro": "Gato Preto",
+        "detalhes": "Novo orçamento Recovery criado. Proposta 26-1993 v.1."
+    },
+    {
+        "id": 9,
+        "dataHora": "2026-06-14 21:28:54",
+        "usuario": "Adriner Ferreira",
+        "perfil": "admin",
+        "modulo": "Recovery",
+        "acao": "Cadastro",
+        "registro": "Renan",
+        "detalhes": "Novo orçamento Recovery criado. Proposta 26-1994 v.1."
+    },
+    {
+        "id": 10,
+        "dataHora": "2026-06-14 21:32:59",
+        "usuario": "Adriner Ferreira",
+        "perfil": "admin",
+        "modulo": "Recovery",
+        "acao": "Edição",
+        "registro": "Renan",
+        "detalhes": "Orçamento Recovery atualizado. Proposta 26-1994 v.1."
+    },
+    {
+        "id": 11,
+        "dataHora": "2026-06-14 23:36:54",
+        "usuario": "Adriner Ferreira",
+        "perfil": "admin",
+        "modulo": "Recovery",
+        "acao": "Cadastro",
+        "registro": "Dona maria",
+        "detalhes": "Novo orçamento Recovery criado. Proposta 26-1997 v.1."
+    },
+    {
+        "id": 12,
+        "dataHora": "2026-06-15 00:19:52",
+        "usuario": "Adriner Ferreira",
+        "perfil": "admin",
+        "modulo": "Recovery",
+        "acao": "Edição",
+        "registro": "Renan",
+        "detalhes": "Orçamento Recovery atualizado. Proposta 26-1994 v.1."
+    },
+    {
+        "id": 13,
+        "dataHora": "2026-06-15 00:20:34",
+        "usuario": "Adriner Ferreira",
+        "perfil": "admin",
+        "modulo": "Recovery",
+        "acao": "Edição",
+        "registro": "Adriner",
+        "detalhes": "Orçamento Recovery atualizado. Proposta 26-1998 v.1."
+    }
+]

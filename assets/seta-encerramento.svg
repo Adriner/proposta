@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="420" height="420" viewBox="0 0 420 420">
+  <path
+    d="M70 345 L305 110"
+    fill="none"
+    stroke="#6d6d6d"
+    stroke-width="34"
+    stroke-linecap="round"
+  />
+  <path
+    d="M190 110 H305 V225"
+    fill="none"
+    stroke="#6d6d6d"
+    stroke-width="34"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+</svg>

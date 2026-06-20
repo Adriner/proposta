@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head><meta charset="utf-8">
+  
+
+  <title>Gerador de Propostas Fiscal.io</title>
+
+  <link rel="stylesheet" href="css/app.css?v=4">
+</head>
+
+<body>
+
+  <main class="app-shell">
+
+    <aside class="app-sidebar">
+
+      <div class="sidebar-logo">
+
+  <img
+    src="assets/logo-fiscalio-monitor.png"
+    alt="Fiscal.io"
+    class="logo-sidebar"
+  >
+
+  <br><br>
+
+</div>
+
+      <nav class="app-menu">
+
+        <button type="button" class="menu-item ativo" data-tab="tab-proposta">
+          Nova proposta
+        </button>
+
+        <button type="button" class="menu-item" data-tab="tab-vendedores">
+          Vendedores
+        </button>
+
+        <button type="button" class="menu-item" data-tab="tab-valores">
+          Valores e planos
+        </button>
+
+        <button type="button" class="menu-item" data-tab="tab-propostas">
+          Propostas salvas
+        </button>
+
+        <div class="sidebar-actions">
+
+          <button
+            id="btnLimparInferior"
+            type="button"
+            class="btn-sidebar-secundario">
+            Limpar formulário
+          </button>
+
+          <button
+            id="btnGerarSidebar"
+            type="submit"
+            form="formProposta"
+            class="btn-sidebar-principal">
+            Gerar proposta
+          </button>
+
+        </div>
+
+      </nav>
+
+    </aside>
+
+    <section class="app-main">
+
+      <header class="app-header">
+        <div>
+          <h1>Gerador de Propostas Fiscal.io</h1>
+          <p>Cadastre bases comerciais e gere propostas personalizadas.</p>
+        </div>
+      </header>
+
+      <!-- ABA 1 - NOVA PROPOSTA -->
+      <section class="app-tab ativo" id="tab-proposta">
+
+        <form id="formProposta" class="form-card">
+
+          <h2>Nova proposta comercial</h2>
+
+          <div class="form-section">
+            <h3>Dados da proposta</h3>
+
+            <div class="grid">
+              <label>
+                Número da proposta
+                <input type="text" id="numeroProposta" placeholder="26-1990" required>
+              </label>
+
+              <label>
+                Versão
+                <input type="text" id="versaoProposta" value="v.1" required>
+              </label>
+
+              <label>
+                Data da proposta
+                <input type="date" id="dataProposta" required>
+              </label>
+
+              <label>
+                Validade da proposta
+                <input type="date" id="validade" required>
+              </label>
+            </div>
+          </div>
+
+          <div class="form-section">
+            <h3>Cliente</h3>
+
+            <div class="grid">
+              <label>
+                Empresa
+                <input type="text" id="empresa" placeholder="Nome da empresa" required>
+              </label>
+
+              <label>
+                Contato
+                <input type="text" id="contato" placeholder="Nome do contato" required>
+              </label>
+
+              <label class="full">
+                Logo do cliente
+                <input type="file" id="logoCliente" accept="image/*">
+              </label>
+            </div>
+          </div>
+
+          <div class="form-section">
+            <h3>Diagnóstico comercial</h3>
+
+            <div class="grid">
+              <label class="full">
+                Participantes da reunião
+                <textarea id="participantes" placeholder="Ex.: Guilherme; Adriana; Vitória"></textarea>
+              </label>
+
+              <label class="full">
+                Necessidades identificadas
+                <textarea id="necessidades" placeholder="Digite uma necessidade por linha"></textarea>
+              </label>
+            </div>
+          </div>
+
+          <div class="form-section">
+            <h3>Plano e valores</h3>
+
+            <div class="grid">
+              <label>
+                Plano
+                <select id="plano" required>
+                  <option value="">Selecione</option>
+                  <option value="basico">Básico</option>
+                  <option value="avancado">Avançado</option>
+                  <option value="enterprise">Enterprise</option>
+                </select>
+              </label>
+
+              <label>
+                Modelo da proposta
+                <select id="modeloOferta" required>
+                  <option value="local-nuvem">Local + Nuvem</option>
+                  <option value="local">Somente Local</option>
+                  <option value="nuvem">Somente Nuvem</option>
+                </select>
+              </label>
+
+              <label>
+                Módulo NFSe
+                <select id="moduloServico">
+                  <option value="sim">Com NFSe</option>
+                  <option value="nao">Sem NFSe</option>
+                </select>
+              </label>
+
+              <label>
+                Fidelidade / contrato
+                <input type="text" id="fidelidade" placeholder="6 meses">
+              </label>
+
+              <label>
+                CNPJs monitorados
+                <input type="number" id="cnpjs" min="1">
+              </label>
+
+              <label>
+                Usuários
+                <input type="number" id="usuarios" min="1">
+              </label>
+
+              <label>
+                Usuários adicionais
+                <input type="number" id="usuariosAdicionais" min="0" value="0">
+              </label>
+
+              <label>
+                Valor usuário adicional
+                <input type="text" id="usuarioAdicional" placeholder="R$ 150,00">
+              </label>
+
+              <label>
+                Valor local
+                <input type="text" id="valorLocal" placeholder="R$ 980/mês">
+              </label>
+
+              <label>
+                Valor nuvem
+                <input type="text" id="valorNuvem" placeholder="R$ 1.370/mês">
+              </label>
+
+              <label>
+                Implantação
+                <input type="text" id="implantacao" placeholder="R$ 1.500,00">
+              </label>
+            </div>
+          </div>
+
+          <div class="form-section">
+            <h3>Consultor responsável</h3>
+
+            <div class="grid">
+              <label>
+                Consultor
+                <select id="consultorSelecionado">
+                  <option value="adriner">Adriner Ferreira</option>
+                </select>
+              </label>
+
+              <label>
+                Nome do consultor
+                <input type="text" id="consultorNome" value="Adriner Ferreira" required>
+              </label>
+
+              <label>
+                Cargo
+                <input type="text" id="consultorCargo" value="Consultor" required>
+              </label>
+
+              <label>
+                Telefone principal
+                <input type="text" id="consultorTelefone" value="11 4040-4010">
+              </label>
+
+              <label>
+                WhatsApp / telefone direto
+                <input type="text" id="consultorWhatsApp" value="44 3142-4869">
+              </label>
+
+              <label>
+                E-mail
+                <input type="email" id="consultorEmail" value="adriner.ferreira@fiscal.io" required>
+              </label>
+
+              <label class="full">
+                Observações comerciais
+                <textarea id="observacoesComerciais" placeholder="Condição especial, desconto, módulo adicional..."></textarea>
+              </label>
+            </div>
+          </div>
+
+        </form>
+
+      </section>
+
+      <!-- ABA 2 - VENDEDORES -->
+      <section class="app-tab" id="tab-vendedores">
+
+        <div class="form-card">
+          <h2>Cadastro de vendedores</h2>
+
+          <div class="grid">
+            <label>
+              Nome
+              <input type="text" id="cadVendedorNome" placeholder="Adriner Ferreira">
+            </label>
+
+            <label>
+              Cargo
+              <input type="text" id="cadVendedorCargo" placeholder="Consultor">
+            </label>
+
+            <label>
+              Telefone
+              <input type="text" id="cadVendedorTelefone" placeholder="11 4040-4010">
+            </label>
+
+            <label>
+              WhatsApp
+              <input type="text" id="cadVendedorWhatsApp" placeholder="44 3142-4869">
+            </label>
+
+            <label>
+              E-mail
+              <input type="email" id="cadVendedorEmail" placeholder="nome@fiscal.io">
+            </label>
+
+            <label class="full">
+              Foto do vendedor
+              <input type="file" id="cadVendedorFoto" accept="image/*">
+            </label>
+
+            <div class="preview-vendedor" id="previewVendedor">
+              <img id="previewVendedorFoto" alt="Foto do vendedor">
+              <span>Sem foto cadastrada</span>
+            </div>
+          </div>
+
+          <div class="tabela-cadastro" id="listaVendedores">
+            <!-- vendedores cadastrados via JS -->
+          </div>
+        </div>
+
+      </section>
+
+      <!-- ABA 3 - VALORES -->
+      <section class="app-tab" id="tab-valores">
+
+        <div class="form-card">
+          <h2>Cadastro de valores e planos</h2>
+
+          <div class="grid">
+            <label>
+              Plano
+              <select id="cadPlano">
+                <option value="basico">Básico</option>
+                <option value="avancado">Avançado</option>
+                <option value="enterprise">Enterprise</option>
+              </select>
+            </label>
+
+            <label>
+              Valor local
+              <input type="text" id="cadValorLocal" placeholder="R$ 355/mês">
+            </label>
+
+            <label>
+              Valor nuvem
+              <input type="text" id="cadValorNuvem" placeholder="R$ 660/mês">
+            </label>
+
+            <label>
+              Implantação
+              <input type="text" id="cadImplantacao" placeholder="R$ 2.500,00">
+            </label>
+
+            <label>
+              Usuários inclusos
+              <input type="number" id="cadUsuariosInclusos" min="1">
+            </label>
+
+            <label>
+              Valor usuário adicional
+              <input type="text" id="cadUsuarioAdicional" placeholder="R$ 85,00">
+            </label>
+
+            <label class="full">
+              Observações padrão do plano
+              <textarea id="cadObservacoesPlano" placeholder="Digite observações comerciais padrão deste plano"></textarea>
+            </label>
+          </div>
+
+          
+          <div class="tabela-cadastro" id="listaPlanos">
+            <!-- planos cadastrados via JS -->
+          </div>
+        </div>
+
+      </section>
+
+      <!-- ABA 4 - PROPOSTAS SALVAS -->
+      <section class="app-tab" id="tab-propostas">
+
+        <div class="form-card">
+          <h2>Propostas Salvas</h2>
+
+          <div id="dashboardComercial"></div>
+
+          
+          <div class="barra-filtros">
+
+  <input
+    type="text"
+    id="filtroPropostas"
+    placeholder="Pesquisar..."
+  >
+
+  <select id="filtroVendedor">
+    <option value="">Vendedor</option>
+  </select>
+
+  <select id="filtroPlano">
+    <option value="">Plano</option>
+    <option value="basico">Básico</option>
+    <option value="avancado">Avançado</option>
+    <option value="enterprise">Enterprise</option>
+  </select>
+
+  <select id="filtroStatus">
+    <option value="">Status</option>
+  </select>
+
+  <select id="filtroMes">
+    <option value="">Mês</option>
+  </select>
+
+  <select id="filtroAno">
+    <option value="">Ano</option>
+  </select>
+
+  <button id="btnLimparFiltros">
+    Limpar
+  </button>
+
+</div>
+
+          <div class="tabela-cadastro" id="listaPropostas">
+            <!-- propostas salvas via JS -->
+          </div>
+        </div>
+
+      </section>
+
+    </section>
+
+  </main>
+
+  <script src="js/app.js?v=100"></script>
+
+</body>
+</html>

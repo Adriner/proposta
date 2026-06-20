@@ -1,0 +1,178 @@
+/* ==========================================================================
+   1. RESET E CONFIGURAÇÕES GLOBAIS
+   ========================================================================== */
+:root {
+    /* Cores institucionais Fiscal.io - Ajustar conforme paleta exata do PPT */
+    --azul-escuro: #001E62;  /* Fundo principal da capa */
+    --azul-claro: #00A3E0;   /* Destaques e linhas */
+    --verde-fiscal: #00B388; /* Detalhes e tags */
+    --branco: #FFFFFF;
+    --cinza-texto: #333333;
+    --cinza-claro: #F4F6F9;
+    
+    --fonte-principal: 'Arial', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+}
+
+body {
+    font-family: var(--fonte-principal);
+    background-color: #525659; /* Cor padrão de fundo para simular o visualizador */
+    color: var(--cinza-texto);
+}
+
+/* ==========================================================================
+   2. CONFIGURAÇÃO DE SLIDES (PAGINAÇÃO COMPACTA 1920x1080)
+   ========================================================================== */
+.pagina {
+    width: 1920px;
+    height: 1080px;
+    background-color: var(--branco);
+    margin: 40px auto;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* Regras de controle estrito para geração limpa do PDF (Sem quebras erradas) */
+@media print {
+    @page {
+        size: 1920px 1080px;
+        margin: 0;
+    }
+    body {
+        background-color: transparent;
+    }
+    .pagina {
+        margin: 0;
+        box-shadow: none;
+        page-break-inside: avoid;
+        page-break-after: always;
+    }
+}
+
+/* ==========================================================================
+   3. PÁGINA 1 - CAPA
+   ========================================================================== */
+.pagina-capa {
+    background-color: var(--azul-escuro);
+    color: var(--branco);
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 100px 120px; /* Margens generosas padrão slide */
+}
+
+/* --- TOPO DA CAPA --- */
+.capa-topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    position: relative;
+}
+
+.logo-fiscalio-branca {
+    width: 280px;
+    height: auto;
+}
+
+.capa-texto {
+    margin-top: 60px;
+}
+
+.capa-texto h1 {
+    font-size: 96px;
+    font-weight: 800;
+    line-height: 1.05;
+    text-transform: uppercase;
+    letter-spacing: -2px;
+    margin-bottom: 25px;
+}
+
+.capa-plano {
+    font-size: 32px;
+    font-weight: 400;
+    color: var(--azul-claro);
+    letter-spacing: 0.5px;
+}
+
+.capa-plano [data-campo="planoNome"] {
+    font-weight: 700;
+    color: var(--branco);
+}
+
+/* Elemento mock para o elemento visual/gráfico do notebook se houver no slide */
+.capa-notebook {
+    position: absolute;
+    right: 0;
+    bottom: -80px;
+    width: 650px;
+    height: 450px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right center;
+    pointer-events: none;
+}
+
+/* --- RODAPÉ DA CAPA --- */
+.capa-rodape {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 100%;
+    border-top: 2px solid rgba(255, 255, 255, 0.1);
+    padding-top: 40px;
+}
+
+.capa-rodape strong {
+    font-size: 24px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.capa-info-proposta {
+    font-size: 22px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.9);
+    text-align: center;
+}
+
+.capa-info-proposta span {
+    font-weight: 700;
+}
+
+/* Container do logotipo do cliente contratante */
+.capa-logo-cliente {
+    width: 240px;
+    height: 100px;
+    background-color: var(--branco);
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+#logoClienteTexto {
+    font-size: 18px;
+    font-weight: 700;
+    color: #999999;
+    letter-spacing: 2px;
+    display: none; /* Ocultado por padrão se a imagem carregar */
+}
+
+#logoClienteImagem {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}

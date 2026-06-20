@@ -1,0 +1,2439 @@
+/* =========================================================
+   APP.CSS — GERADOR DE PROPOSTAS FISCAL.IO
+   Última revisão: ajuste visual do painel administrativo,
+   padronização da fonte e melhorias na aba Funcionalidades.
+   ========================================================= */
+
+
+/* =========================================================
+   1. RESET BÁSICO
+   Controla o cálculo de largura/altura de todos os elementos.
+   Evita que padding e borda estourem o layout.
+   ========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   2. VARIÁVEIS GLOBAIS
+   Cores principais do sistema.
+   Para mudar a identidade visual do painel, altere aqui.
+   ========================================================= */
+
+:root {
+  --azul-escuro: #002c4b;
+  --azul-claro: #00b9fa;
+  --texto: #0f172a;
+  --muted: #64748b;
+  --borda: #d7e2ee;
+  --fundo: #eef3f8;
+  --card: #ffffff;
+  --branco: #ffffff;
+  --cinza-hover: #f8fafc;
+  --sombra-card: 0 18px 45px rgba(15, 23, 42, 0.10);
+}
+
+
+/* =========================================================
+   3. BASE DO SISTEMA
+   Controla fonte, cor de fundo e comportamento geral.
+   Importante: a fonte Poppins precisa estar carregada no HTML.
+   ========================================================= */
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  font-family: 'Poppins', Arial, Helvetica, sans-serif;
+  background: var(--fundo);
+  color: var(--texto);
+}
+
+/* Garante que campos e botões herdem a fonte padrão */
+input,
+select,
+textarea,
+button {
+  font-family: inherit;
+}
+
+
+/* =========================================================
+   4. ESTRUTURA PRINCIPAL
+   Controla o layout com sidebar à esquerda e conteúdo à direita.
+   ========================================================= */
+
+.app-shell {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 300px 1fr;
+}
+
+.app-main {
+  padding: 26px 36px;
+}
+
+
+/* =========================================================
+   5. SIDEBAR / MENU LATERAL
+   Controla a barra azul à esquerda, logo, menu e botões inferiores.
+   ========================================================= */
+
+.app-sidebar {
+  position: relative;
+  background: var(--azul-escuro);
+  color: var(--branco);
+  padding: 28px 24px;
+}
+
+.sidebar-logo {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.logo-sidebar {
+  max-width: 200px;
+  height: auto;
+}
+
+.app-brand {
+  margin-bottom: 36px;
+}
+
+.app-brand strong {
+  display: block;
+  font-size: 24px;
+}
+
+.app-brand span {
+  display: block;
+  margin-top: 6px;
+  font-size: 13px;
+  color: #a8d8f0;
+}
+
+.app-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.menu-item {
+  width: 100%;
+  height: auto;
+  padding: 13px 14px;
+
+  border: none;
+  border-radius: 12px;
+
+  background: transparent;
+  color: #d8edf7;
+
+  text-align: left;
+  font-size: 14px;
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+.menu-item:hover,
+.menu-item.ativo {
+  background: var(--azul-claro);
+  color: var(--azul-escuro);
+}
+
+/* Botões fixos na parte inferior da sidebar */
+.sidebar-actions {
+  position: absolute;
+  left: 20px;
+  right: 20px;
+  bottom: 24px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sidebar-actions button {
+  width: 100%;
+  height: 44px;
+  border-radius: 12px;
+}
+
+.sidebar-actions .btn-secundario,
+.btn-sidebar-secundario {
+  width: 100%;
+  height: 44px;
+
+  background: var(--branco);
+  color: var(--azul-escuro);
+
+  border: 1px solid rgba(255, 255, 255, .35);
+  border-radius: 12px;
+
+  font-weight: 700;
+}
+
+.sidebar-actions .btn-principal,
+.btn-sidebar-principal {
+  width: 100%;
+  height: 48px;
+
+  background: var(--azul-claro);
+  color: var(--azul-escuro);
+
+  border: none;
+  border-radius: 12px;
+
+  font-weight: 800;
+}
+
+
+/* =========================================================
+   6. CABEÇALHO DO CONTEÚDO
+   Controla o título e subtítulo no topo das abas.
+   ========================================================= */
+
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.app-header h1 {
+  margin: 0 0 6px;
+  font-size: 25px;
+  font-weight: 800;
+}
+
+.app-header p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+
+/* =========================================================
+   7. ABAS DO SISTEMA
+   Controla quais telas aparecem ou ficam ocultas.
+   ========================================================= */
+
+.app-tab {
+  display: none;
+}
+
+.app-tab.ativo {
+  display: block;
+}
+
+
+/* =========================================================
+   8. CARDS E SEÇÕES DE FORMULÁRIO
+   Controla os blocos brancos onde ficam os formulários.
+   ========================================================= */
+
+.form-card {
+  background: var(--card);
+  border-radius: 18px;
+  padding: 22px 28px;
+  box-shadow: var(--sombra-card);
+}
+
+.form-card h2 {
+  margin: 0 0 16px;
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--texto);
+}
+
+.form-card p {
+  margin: 0 0 18px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.form-section {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid #e2e8f0;
+}
+
+.form-section:first-of-type {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: none;
+}
+
+.form-section h3 {
+  margin: 0 0 8px;
+  font-size: 14px;
+  color: var(--azul-escuro);
+}
+
+
+/* =========================================================
+   9. GRID DE CAMPOS
+   Controla o alinhamento dos campos nas telas de cadastro.
+   ========================================================= */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px 14px;
+  align-items: end;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #334155;
+}
+
+label.full {
+  grid-column: 1 / -1;
+}
+
+
+/* =========================================================
+   10. CAMPOS DE ENTRADA
+   Controla inputs, selects, textareas e estados de foco.
+   ========================================================= */
+
+input,
+select,
+textarea {
+  width: 100%;
+
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+
+  padding: 0 12px;
+
+  font-size: 13px;
+  color: var(--texto);
+  background: var(--branco);
+}
+
+input,
+select {
+  height: 34px;
+}
+
+textarea {
+  min-height: 60px;
+  max-height: 72px;
+  padding: 9px 11px;
+  resize: vertical;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--azul-claro);
+  box-shadow: 0 0 0 3px rgba(0, 185, 250, 0.18);
+}
+
+input[type="file"] {
+  height: 34px;
+  padding: 5px 9px;
+}
+
+input[type="checkbox"] {
+  width: 26px;
+  height: 26px;
+  padding: 0;
+  cursor: pointer;
+  accent-color: #087bff;
+}
+
+
+/* =========================================================
+   11. BOTÕES GERAIS
+   Controla botões principais e secundários usados nas abas.
+   ========================================================= */
+
+button {
+  border: none;
+  border-radius: 12px;
+
+  font-size: 14px;
+  font-weight: 800;
+
+  padding: 0 22px;
+  height: 38px;
+
+  cursor: pointer;
+}
+
+.actions {
+  margin-top: 14px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.btn-principal {
+  background: var(--azul-claro);
+  color: var(--azul-escuro);
+  min-width: 180px;
+}
+
+.btn-principal:hover {
+  background: #0098d4;
+}
+
+.btn-secundario {
+  background: var(--branco);
+  color: #475569;
+  border: 1px solid #cbd5e1;
+  min-width: 170px;
+}
+
+.btn-secundario:hover {
+  background: var(--cinza-hover);
+}
+
+
+/* =========================================================
+   12. ABA NOVA PROPOSTA
+   Controla os grids específicos da tela de criação de proposta.
+   ========================================================= */
+
+#tab-proposta .form-card {
+  padding-bottom: 20px;
+}
+
+#tab-proposta .form-section:nth-of-type(1) .grid {
+  grid-template-columns: 150px 90px 140px 140px;
+}
+
+#tab-proposta .form-section:nth-of-type(2) .grid {
+  grid-template-columns: 1.4fr 1fr 1fr;
+}
+
+#tab-proposta .form-section:nth-of-type(2) label.full {
+  grid-column: span 1;
+}
+
+#tab-proposta .form-section:nth-of-type(3) .grid {
+  grid-template-columns: 1fr 1.5fr;
+}
+
+#tab-proposta .form-section:nth-of-type(3) label.full {
+  grid-column: span 1;
+}
+
+#tab-proposta .form-section:nth-of-type(4) .grid {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+
+#tab-proposta .form-section:nth-of-type(4) label {
+  min-width: 0;
+}
+
+#tab-proposta .form-section:nth-of-type(5) .grid {
+  grid-template-columns: 1.1fr 1.2fr 0.9fr 1fr 1fr 1.4fr;
+}
+
+#tab-proposta .form-section:nth-of-type(5) label.full {
+  grid-column: 1 / -1;
+}
+
+.actions-proposta {
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid #e2e8f0;
+}
+
+
+/* =========================================================
+   13. ABA VENDEDORES
+   Controla cadastro e prévia de foto dos vendedores.
+   ========================================================= */
+
+.preview-vendedor {
+  grid-column: 1 / -1;
+
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  min-height: 58px;
+  padding: 10px 14px;
+
+  border: 1px dashed #cbd5e1;
+  border-radius: 12px;
+
+  background: var(--cinza-hover);
+  color: var(--muted);
+
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.preview-vendedor img {
+  display: none;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.preview-vendedor.com-foto img {
+  display: block;
+}
+
+.preview-vendedor.com-foto span {
+  color: var(--azul-escuro);
+  font-size: 0;
+}
+
+.preview-vendedor.com-foto span::before {
+  content: "Foto cadastrada";
+  font-size: 13px;
+}
+
+#tab-vendedores .form-card {
+  padding: 24px 28px;
+}
+
+#tab-vendedores .form-card h2 {
+  margin-bottom: 18px;
+  font-size: 22px;
+}
+
+#tab-vendedores .grid {
+  grid-template-columns: 1.4fr 0.9fr 0.9fr 0.9fr;
+  gap: 14px 16px;
+}
+
+#tab-vendedores label:nth-child(5),
+#tab-vendedores label:nth-child(6) {
+  grid-column: span 2;
+}
+
+#tab-vendedores .actions {
+  margin-top: 16px;
+}
+
+
+/* =========================================================
+   14. TABELAS DE CADASTRO
+   Controla listas simples reutilizadas no painel.
+   ========================================================= */
+
+.tabela-cadastro {
+  width: 100%;
+  margin-top: 18px;
+
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+
+  overflow: hidden;
+  overflow-x: auto;
+
+  background: var(--branco);
+}
+
+.tabela-cadastro:empty {
+  display: none;
+}
+
+.tabela-cadastro .linha {
+  display: grid;
+  grid-template-columns: 1.2fr 0.9fr 0.9fr 1.2fr;
+  gap: 12px;
+
+  min-height: 42px;
+  padding: 10px 14px;
+
+  align-items: center;
+
+  border-bottom: 1px solid #e2e8f0;
+
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.tabela-cadastro .linha:last-child {
+  border-bottom: none;
+}
+
+.tabela-cadastro .linha:hover {
+  background: #f1f9ff;
+}
+
+.tabela-cadastro strong {
+  color: var(--azul-escuro);
+  font-size: 13px;
+}
+
+.tabela-cadastro span {
+  font-size: 13px;
+}
+
+
+/* =========================================================
+   15. PROPOSTAS SALVAS — DASHBOARD E FILTROS
+   Controla cartões de status, busca e filtros comerciais.
+   ========================================================= */
+
+.dashboard-comercial {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 14px;
+  margin: 18px 0 24px;
+}
+
+.card-status {
+  background: var(--cinza-hover);
+  border: 1px solid #dbe4ef;
+  border-radius: 14px;
+  padding: 16px;
+}
+
+.card-status-topo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-status-titulo {
+  font-weight: 700;
+  color: #001e62;
+}
+
+.card-status-quantidade {
+  font-size: 26px;
+  color: #001e62;
+}
+
+.card-status-direita {
+  margin-top: 12px;
+}
+
+.card-fin-linha {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 6px;
+  font-size: 13px;
+}
+
+.campo-pesquisa {
+  width: 100%;
+  margin-bottom: 16px;
+  padding: 10px 14px;
+
+  border: 1px solid #dbe4ee;
+  border-radius: 10px;
+
+  font-size: 14px;
+  background: var(--branco);
+}
+
+.campo-pesquisa:focus {
+  outline: none;
+  border-color: var(--azul-claro);
+}
+
+.barra-filtros {
+  display: grid;
+  grid-template-columns: 2fr repeat(5, 1fr) auto;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.barra-filtros input,
+.barra-filtros select {
+  height: 40px;
+}
+
+#btnLimparFiltros {
+  height: 40px;
+  padding: 0 18px;
+
+  border: none;
+  border-radius: 10px;
+
+  background: #eef2f7;
+
+  font-weight: 700;
+  cursor: pointer;
+}
+
+
+/* =========================================================
+   16. PROPOSTAS SALVAS — TABELA
+   Controla as linhas das propostas salvas e seus botões.
+   ========================================================= */
+
+#listaPropostas {
+  display: block;
+  width: 100%;
+}
+
+#listaPropostas .linha-proposta,
+#listaPropostas .cabecalho-propostas {
+  display: grid !important;
+  grid-template-columns: 90px minmax(240px, 2fr) 160px 120px 100px 140px 120px 220px !important;
+  align-items: center !important;
+  gap: 12px !important;
+
+  width: 100% !important;
+  box-sizing: border-box !important;
+
+  white-space: nowrap !important;
+}
+
+#listaPropostas .linha-proposta {
+  min-height: 42px !important;
+  padding: 6px 10px !important;
+  margin: 0 !important;
+
+  border-bottom: 1px solid #e5e7eb !important;
+}
+
+#listaPropostas .cabecalho-propostas {
+  background: var(--cinza-hover) !important;
+  border-bottom: 1px solid #dbe4ee !important;
+
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  color: #334155 !important;
+}
+
+#listaPropostas .linha-proposta > *,
+#listaPropostas .cabecalho-propostas > * {
+  align-self: center !important;
+  min-width: 0 !important;
+}
+
+#listaPropostas .linha-proposta span,
+#listaPropostas .linha-proposta strong {
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+  font-size: 12px !important;
+}
+
+#listaPropostas .coluna-ordenavel {
+  appearance: none !important;
+
+  border: 0 !important;
+  background: transparent !important;
+
+  padding: 0 !important;
+  margin: 0 !important;
+
+  text-align: left !important;
+  font: inherit !important;
+  font-weight: 700 !important;
+  color: #334155 !important;
+
+  cursor: pointer !important;
+  white-space: nowrap !important;
+}
+
+#listaPropostas .coluna-ordenavel:hover {
+  color: var(--azul-claro) !important;
+}
+
+#listaPropostas .acoes-proposta,
+#listaPropostas .proposta-acoes,
+#listaPropostas .linha-acoes {
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: flex-start !important;
+  align-items: center !important;
+  gap: 6px !important;
+  flex-wrap: nowrap !important;
+}
+
+#listaPropostas .btn-mini,
+#listaPropostas .acao-proposta,
+#listaPropostas .btn-acao,
+#listaPropostas .btn-abrir,
+#listaPropostas .btn-editar,
+#listaPropostas .btn-excluir,
+#listaPropostas .btn-duplicar,
+#listaPropostas .linha-proposta button {
+  height: auto !important;
+
+  border: 0 !important;
+  border-radius: 6px !important;
+
+  padding: 5px 7px !important;
+
+  font-size: 11px !important;
+  line-height: 1 !important;
+  font-weight: 700 !important;
+
+  cursor: pointer !important;
+  white-space: nowrap !important;
+
+  background: #eef2f7 !important;
+  color: var(--texto) !important;
+}
+
+#listaPropostas .btn-mini:hover,
+#listaPropostas .acao-proposta:hover,
+#listaPropostas .btn-acao:hover,
+#listaPropostas .btn-abrir:hover,
+#listaPropostas .btn-editar:hover,
+#listaPropostas .btn-excluir:hover,
+#listaPropostas .btn-duplicar:hover,
+#listaPropostas .linha-proposta button:hover {
+  background: var(--azul-claro) !important;
+  color: var(--branco) !important;
+}
+
+.badge-versao {
+  background: #eef6ff;
+  color: #001e62;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.status-proposta {
+  height: 36px;
+  border-radius: 8px;
+  border: 1px solid #dbe4ef;
+  background: var(--branco);
+}
+
+
+/* =========================================================
+   17. ABA FUNCIONALIDADES
+   Controla a tabela que edita o arquivo funcionalidades.json.
+   Compatível com:
+   - .tabela-funcionalidades
+   - .funcionalidades-table
+   ========================================================= */
+
+#tab-funcionalidades .form-card {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+#tab-funcionalidades h2 {
+  margin-bottom: 8px;
+  font-size: 24px;
+  font-weight: 800;
+}
+
+#tab-funcionalidades p {
+  margin-bottom: 20px;
+  color: #475569;
+  font-size: 14px;
+}
+
+.tabela-funcionalidades,
+.funcionalidades-table {
+  width: 100%;
+  min-width: 760px;
+
+  border-collapse: separate;
+  border-spacing: 0 8px;
+}
+
+.tabela-funcionalidades th,
+.funcionalidades-table th {
+  padding: 0 7px 6px;
+
+  color: var(--texto);
+
+  font-size: 13px;
+  font-weight: 800;
+
+  text-align: left;
+  white-space: nowrap;
+}
+
+.tabela-funcionalidades td,
+.funcionalidades-table td {
+  padding: 0 4px;
+  vertical-align: middle;
+}
+
+.tabela-funcionalidades input[type="text"],
+.tabela-funcionalidades input[type="number"],
+.tabela-funcionalidades select,
+.funcionalidades-table input[type="text"],
+.funcionalidades-table input[type="number"],
+.funcionalidades-table select {
+  width: 100%;
+  height: 36px;
+
+  border: 1px solid #cbd5e1;
+  border-radius: 9px;
+
+  padding: 0 12px;
+
+  background: var(--branco);
+  color: var(--texto);
+
+  font-size: 13px;
+}
+
+.tabela-funcionalidades input[type="number"],
+.funcionalidades-table input[type="number"] {
+  text-align: center;
+}
+
+/* Checkbox da tabela de funcionalidades */
+.tabela-funcionalidades input[type="checkbox"],
+.funcionalidades-table input[type="checkbox"] {
+  width: 28px;
+  height: 28px;
+  margin: 0;
+
+  accent-color: #087bff;
+  cursor: pointer;
+}
+
+/* Coluna 1: Ordem */
+.tabela-funcionalidades th:nth-child(1),
+.tabela-funcionalidades td:nth-child(1),
+.funcionalidades-table th:nth-child(1),
+.funcionalidades-table td:nth-child(1) {
+  width: 76px;
+}
+
+/* Coluna 2: Nome da funcionalidade */
+.tabela-funcionalidades th:nth-child(2),
+.tabela-funcionalidades td:nth-child(2),
+.funcionalidades-table th:nth-child(2),
+.funcionalidades-table td:nth-child(2) {
+  width: 360px;
+  min-width: 300px;
+}
+
+/* Coluna 3: Categoria */
+.tabela-funcionalidades th:nth-child(3),
+.tabela-funcionalidades td:nth-child(3),
+.funcionalidades-table th:nth-child(3),
+.funcionalidades-table td:nth-child(3) {
+  width: 155px;
+}
+
+/* Colunas 4 a 7: Checkboxes dos planos */
+.tabela-funcionalidades th:nth-child(n+4),
+.tabela-funcionalidades td:nth-child(n+4),
+.funcionalidades-table th:nth-child(n+4),
+.funcionalidades-table td:nth-child(n+4) {
+  width: 92px;
+  min-width: 86px;
+  text-align: center;
+}
+
+/* Realce leve ao passar o mouse na linha */
+.tabela-funcionalidades tbody tr:hover input,
+.tabela-funcionalidades tbody tr:hover select,
+.funcionalidades-table tbody tr:hover input,
+.funcionalidades-table tbody tr:hover select {
+  border-color: #94a3b8;
+}
+
+/* Botões da aba Funcionalidades */
+#tab-funcionalidades .funcionalidades-acoes,
+#tab-funcionalidades .actions {
+  margin-top: 20px;
+  display: flex;
+  gap: 12px;
+}
+
+#btnAdicionarFuncionalidade,
+#btnSalvarFuncionalidades {
+  height: 42px;
+  border-radius: 10px;
+
+  font-weight: 800;
+}
+
+#btnAdicionarFuncionalidade {
+  background: #e0f2fe;
+  color: #0369a1;
+}
+
+#btnAdicionarFuncionalidade:hover {
+  background: #bae6fd;
+}
+
+#btnSalvarFuncionalidades {
+  background: var(--azul-claro);
+  color: var(--azul-escuro);
+}
+
+#btnSalvarFuncionalidades:hover {
+  background: #0098d4;
+}
+
+
+/* =========================================================
+   18. RESPONSIVO
+   Controla a adaptação do painel em telas menores.
+   ========================================================= */
+
+@media (max-width: 1200px) {
+  .app-shell {
+    grid-template-columns: 260px 1fr;
+  }
+
+  #tab-proposta .form-section:nth-of-type(4) .grid,
+  #tab-proposta .form-section:nth-of-type(5) .grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .barra-filtros {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 900px) {
+  .app-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .app-sidebar {
+    position: static;
+  }
+
+  .sidebar-actions {
+    position: static;
+    margin-top: 22px;
+  }
+
+  .app-menu {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .app-main {
+    padding: 22px;
+  }
+
+  .app-header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .grid,
+  #tab-proposta .form-section:nth-of-type(1) .grid,
+  #tab-proposta .form-section:nth-of-type(2) .grid,
+  #tab-proposta .form-section:nth-of-type(3) .grid,
+  #tab-proposta .form-section:nth-of-type(4) .grid,
+  #tab-proposta .form-section:nth-of-type(5) .grid,
+  #tab-vendedores .grid {
+    grid-template-columns: 1fr;
+  }
+
+  #tab-proposta .form-section:nth-of-type(2) label.full,
+  #tab-proposta .form-section:nth-of-type(3) label.full {
+    grid-column: 1 / -1;
+  }
+
+  .linha-proposta,
+  #listaPropostas .linha-proposta,
+  #listaPropostas .cabecalho-propostas {
+    grid-template-columns: 1fr !important;
+  }
+}
+/* ==============================
+   LOGIN
+   Controla a tela /admin/login.html
+============================== */
+
+.login-page {
+  min-height: 100vh;
+  margin: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background:
+    radial-gradient(circle at top left, rgba(0, 185, 250, .22), transparent 35%),
+    linear-gradient(135deg, #002c4b 0%, #001e62 55%, #0f172a 100%);
+}
+
+.login-card {
+  width: 100%;
+  max-width: 420px;
+
+  background: #ffffff;
+  border-radius: 22px;
+
+  padding: 38px 36px;
+
+  box-shadow: 0 28px 70px rgba(0, 0, 0, .28);
+}
+
+.login-card h1 {
+  margin: 0 0 8px;
+
+  font-size: 34px;
+  font-weight: 800;
+
+  color: #002c4b;
+}
+
+.login-card p {
+  margin: 0 0 26px;
+
+  font-size: 15px;
+  color: #64748b;
+}
+
+.login-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.login-card label {
+  font-size: 12px;
+  font-weight: 800;
+  color: #334155;
+}
+
+.login-card input {
+  height: 42px;
+  margin-top: 6px;
+
+  border-radius: 10px;
+  font-size: 14px;
+}
+
+.login-card button {
+  width: 100%;
+  height: 44px;
+
+  margin-top: 8px;
+
+  background: #00b9fa;
+  color: #002c4b;
+
+  font-size: 15px;
+  font-weight: 900;
+}
+
+.login-card button:hover {
+  background: #00a4df;
+}
+
+#mensagemLogin {
+  min-height: 20px;
+  margin-top: 4px;
+
+  font-size: 13px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.form-section-title {
+  margin: 18px 0 6px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #020617;
+}
+
+.recovery-grid-dados {
+  grid-template-columns: 150px 90px 140px 140px;
+  gap: 12px 14px;
+  align-items: end;
+  padding-bottom: 14px;
+  border-bottom: 1px solid #dbe3ef;
+  margin-bottom: 14px;
+}
+
+.recovery-grid-cliente {
+  grid-template-columns: 1.3fr 1fr 1fr;
+  gap: 12px 14px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid #dbe3ef;
+  margin-bottom: 14px;
+}
+
+.recovery-grid-operacao {
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px 14px;
+}
+
+#tab-recovery label {
+  font-size: 12px;
+  font-weight: 500;
+  color: #020617;
+}
+
+#tab-recovery input,
+#tab-recovery select,
+#tab-recovery textarea {
+  height: 34px;
+  border: 1px solid #cbd5e1;
+  border-radius: 7px;
+  padding: 7px 10px;
+  font-size: 13px;
+  font-family: inherit;
+}
+
+#tab-recovery textarea {
+  height: 60px;
+  resize: vertical;
+}
+
+#tab-recovery .full {
+  grid-column: 1 / -1;
+}
+
+.recovery-grid-dados {
+  grid-template-columns: 150px 90px 140px 140px 140px;
+}
+
+.recovery-grid-cliente {
+  grid-template-columns: 1.4fr 1fr 1fr;
+}
+
+.recovery-grid-operacao {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+#recoveryClienteStatus {
+  font-size: 12px;
+  color: #64748b;
+  margin-top: -6px;
+}
+
+#tab-recovery .full {
+  grid-column: 1 / -1;
+}
+/* ==============================
+   LISTAGEM RECOVERY
+============================== */
+
+#listaRecovery {
+  display: block;
+  width: 100%;
+  margin-top: 18px;
+  padding: 0;
+}
+
+#listaRecovery .recovery-linha {
+  display: grid;
+  grid-template-columns: 2fr 120px 100px 120px 110px 170px 160px;
+  align-items: center;
+  gap: 12px;
+
+  min-height: 46px;
+  padding: 8px 12px;
+  margin-bottom: 8px;
+
+  background: #ffffff;
+  border: 1px solid #dbe3ef;
+  border-radius: 12px;
+
+  font-size: 12px;
+}
+
+#listaRecovery .recovery-linha strong,
+#listaRecovery .recovery-linha span {
+  margin: 0;
+  min-width: 0;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  font-size: 12px;
+  line-height: 1.2;
+}
+
+#listaRecovery .recovery-linha strong {
+  font-weight: 800;
+  color: #002c4b;
+}
+
+#listaRecovery .recovery-linha-status {
+  font-weight: 700;
+  color: #0f172a;
+}
+
+#listaRecovery .recovery-linha button,
+#listaRecovery .btn-compacto {
+  width: 100%;
+  height: 34px;
+  min-width: 0;
+
+  padding: 0 12px;
+  margin: 0;
+
+  border-radius: 10px;
+
+  font-size: 12px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+#listaRecovery .linha-vazia {
+  padding: 14px;
+  border: 1px dashed #cbd5e1;
+  border-radius: 12px;
+  color: #64748b;
+  font-size: 13px;
+  font-weight: 600;
+  background: #f8fafc;
+}
+#listaRecovery .recovery-linha {
+  display: grid;
+  grid-template-columns: 2fr 120px 100px 120px 110px 170px 160px;
+  align-items: center;
+  gap: 12px;
+
+  min-height: 46px;
+  padding: 8px 12px;
+  margin-bottom: 0;
+
+  background: #ffffff;
+  border: none;
+  border-bottom: 1px solid #dbe3ef;
+  border-radius: 0;
+
+  font-size: 12px;
+}
+#listaRecovery {
+  border: 1px solid #dbe3ef;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+#listaRecovery .recovery-linha:last-child {
+  border-bottom: none;
+}
+/* ======================================================
+   EXTRATOR DE CHAVES
+====================================================== */
+
+#tab-extrator-chaves .form-card {
+  padding: 30px;
+}
+
+.keys-dropzone {
+  margin: 20px 0;
+  min-height: 180px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  border: 2px dashed #cbd5e1;
+  border-radius: 16px;
+
+  background: #f8fafc;
+
+  cursor: pointer;
+  transition: .2s;
+}
+
+.keys-dropzone:hover {
+  border-color: #00b9fa;
+  background: #f0fbff;
+}
+
+.keys-dropzone.dragover {
+  border-color: #00b9fa;
+  background: #e0f7ff;
+}
+
+.keys-dropzone strong {
+  font-size: 22px;
+  color: #002c4b;
+  margin-bottom: 8px;
+}
+
+.keys-dropzone span {
+  color: #64748b;
+  font-size: 14px;
+}
+
+/* =========================================
+   OPERAÇÃO
+========================================= */
+
+.keys-opcoes {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+
+  margin: 20px 0;
+}
+
+.keys-opcoes label {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.keys-opcoes input[type="radio"] {
+  width: 18px;
+  height: 18px;
+}
+
+/* =========================================
+   BARRA SUPERIOR
+========================================= */
+
+.keys-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin: 24px 0;
+}
+
+.keys-toolbar-left {
+  display: flex;
+  gap: 14px;
+}
+
+.keys-toolbar-right {
+  display: flex;
+  gap: 12px;
+}
+
+/* =========================================
+   RESUMO
+========================================= */
+
+.keys-resumo {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+
+  margin: 24px 0;
+}
+
+.keys-card {
+  background: #f8fafc;
+  border: 1px solid #dbe3ef;
+  border-radius: 14px;
+  padding: 18px;
+}
+
+.keys-card strong {
+  display: block;
+  font-size: 34px;
+  font-weight: 800;
+  color: #002c4b;
+}
+
+.keys-card span {
+  display: block;
+  margin-top: 6px;
+  color: #64748b;
+  font-size: 13px;
+}
+
+/* =========================================
+   BUSCA
+========================================= */
+
+.keys-search {
+  margin: 24px 0;
+}
+
+.keys-search input {
+  height: 44px;
+  border-radius: 12px;
+}
+
+/* =========================================
+   TÍTULOS
+========================================= */
+
+.keys-titulo {
+  margin-top: 30px;
+  margin-bottom: 12px;
+
+  font-size: 24px;
+  font-weight: 800;
+  color: #002c4b;
+}
+
+/* =========================================
+   TABULATOR
+========================================= */
+
+#gridChaves,
+#gridSaltos {
+  margin-bottom: 30px;
+}
+
+.tabulator {
+  border-radius: 14px !important;
+  overflow: hidden;
+  border: 1px solid #dbe3ef !important;
+}
+
+.tabulator-header {
+  background: #f8fafc !important;
+}
+
+.tabulator-col {
+  font-weight: 700 !important;
+}
+
+/* =========================================
+   STATUS
+========================================= */
+
+.af-status-ok {
+  color: #16a34a;
+  font-weight: 800;
+}
+
+.af-status-alerta {
+  color: #dc2626;
+  font-weight: 800;
+}
+
+.af-chave-link {
+  color: #002c4b;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.af-chave-link:hover {
+  color: #00b9fa;
+}
+
+/* =========================================
+   PROGRESSO
+========================================= */
+
+.keys-progress {
+  margin-top: 14px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #475569;
+}
+
+#gridChaves {
+  width: 100%;
+  min-height: 520px;
+  margin-top: 12px;
+  margin-bottom: 30px;
+}
+
+#gridSaltos {
+  width: 100%;
+  min-height: 360px;
+  margin-top: 12px;
+  margin-bottom: 30px;
+}
+
+#tab-extrator-chaves #gridChaves,
+#tab-extrator-chaves #gridSaltos {
+  display: block !important;
+  width: 100% !important;
+  min-height: 420px !important;
+  height: auto !important;
+  margin-top: 14px !important;
+  margin-bottom: 30px !important;
+  overflow: visible !important;
+}
+
+#tab-extrator-chaves .tabulator {
+  display: block !important;
+  width: 100% !important;
+  min-height: 420px !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+/* ======================================================
+   CORREÇÃO TABULATOR - EXTRATOR DE CHAVES
+====================================================== */
+
+#tab-extrator-chaves {
+  overflow-x: hidden;
+}
+
+#tab-extrator-chaves .form-card {
+  overflow-x: hidden;
+}
+
+#gridChaves,
+#gridSaltos {
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+#tab-extrator-chaves .tabulator {
+  width: 100% !important;
+  max-width: 100% !important;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+#tab-extrator-chaves .tabulator-footer {
+  display: flex !important;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding: 10px;
+}
+
+#tab-extrator-chaves .tabulator-paginator {
+  display: flex !important;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+#tab-extrator-chaves .tabulator-page {
+  position: static !important;
+  margin: 0 !important;
+}
+#tab-extrator-chaves {
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+#tab-extrator-chaves .form-card {
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+/* =========================================================
+   AJUSTES RESPONSIVOS - EXTRATOR DE CHAVES
+========================================================= */
+
+.af-keys-tool {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.af-keys-tool .af-container {
+  max-width: calc(100vw - 280px);
+  width: 100%;
+  margin: 0 auto;
+  padding: 28px 32px;
+  overflow: hidden;
+}
+
+/* Área dos botões */
+.af-keys-actions,
+.af-keys-buttons,
+.extrator-acoes {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  flex-wrap: wrap;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.af-keys-actions button,
+.af-keys-buttons button,
+.extrator-acoes button {
+  white-space: nowrap;
+  min-width: 150px;
+}
+
+/* Área da tabela */
+#tabelaChaves,
+.tabulator {
+  width: 100% !important;
+  max-width: 100% !important;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #d8e2ef;
+  box-shadow: 0 8px 24px rgba(15, 76, 129, 0.08);
+}
+
+/* Evita a página inteira criar rolagem horizontal */
+.tabulator-tableholder {
+  overflow-x: auto !important;
+}
+
+/* Cabeçalho da tabela */
+.tabulator .tabulator-header {
+  background: #f3f7fb !important;
+  border-bottom: 1px solid #d8e2ef !important;
+}
+
+.tabulator .tabulator-header .tabulator-col {
+  background: #f3f7fb !important;
+  border-right: 1px solid #d8e2ef !important;
+}
+
+.tabulator .tabulator-header .tabulator-col-title {
+  font-size: 12px;
+  font-weight: 700;
+  color: #17324d;
+}
+
+/* Filtros das colunas */
+.tabulator .tabulator-header-filter input {
+  height: 32px;
+  border: 1px solid #cfd9e6;
+  border-radius: 8px;
+  padding: 6px 8px;
+  font-size: 12px;
+  background: #ffffff;
+  outline: none;
+}
+
+.tabulator .tabulator-header-filter input:focus {
+  border-color: #16b8f3;
+  box-shadow: 0 0 0 3px rgba(22, 184, 243, 0.15);
+}
+
+/* Linhas */
+.tabulator .tabulator-row {
+  min-height: 34px;
+  border-bottom: 1px solid #edf2f7;
+}
+
+.tabulator .tabulator-row:nth-child(even) {
+  background: #f8fbfe;
+}
+
+.tabulator .tabulator-row:hover {
+  background: #eaf7ff !important;
+}
+
+/* Células */
+.tabulator .tabulator-cell {
+  padding: 8px 8px;
+  font-size: 12px;
+  color: #243447;
+  border-right: 1px solid #edf2f7;
+}
+
+/* Status válida */
+.tabulator .tabulator-cell[tabulator-field="status"] {
+  font-weight: 700;
+  color: #0a9f3f;
+}
+
+/* Barra inferior */
+.tabulator .tabulator-footer {
+  background: #f8fbfe;
+  border-top: 1px solid #d8e2ef;
+}
+
+/* Ajuste para monitores menores */
+@media (max-width: 1366px) {
+  .af-keys-tool .af-container {
+    max-width: calc(100vw - 250px);
+    padding: 22px 24px;
+  }
+
+  .af-keys-actions button,
+  .af-keys-buttons button,
+  .extrator-acoes button {
+    min-width: 135px;
+    padding: 10px 14px;
+    font-size: 12px;
+  }
+}
+/* =========================================================
+   EXTRATOR DE CHAVES - AJUSTE FINAL RESPONSIVO
+========================================================= */
+
+#tab-extrator-chaves {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+#tab-extrator-chaves .form-card {
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  padding: 28px;
+  border-radius: 18px;
+}
+
+/* Dropzone */
+.keys-dropzone {
+  width: 100%;
+  min-height: 150px;
+  border: 2px dashed #c7d8ea;
+  border-radius: 18px;
+  background: #f8fbff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.keys-dropzone strong {
+  font-size: 22px;
+  color: #001f3f;
+}
+
+.keys-dropzone span {
+  color: #62748a;
+}
+
+/* Opções */
+.keys-opcoes {
+  display: flex;
+  gap: 28px;
+  align-items: center;
+  margin: 18px 0;
+  flex-wrap: wrap;
+}
+
+.keys-opcoes label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+}
+
+/* Botões */
+#tab-extrator-chaves .actions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  width: 100%;
+  margin: 18px 0 22px;
+}
+
+#tab-extrator-chaves .actions button {
+  min-width: 160px;
+  height: 42px;
+  border-radius: 12px;
+  white-space: nowrap;
+}
+
+/* Resumo */
+.keys-resumo {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(120px, 1fr));
+  gap: 14px;
+  margin: 18px 0;
+}
+
+.keys-resumo div {
+  background: #f8fbff;
+  border: 1px solid #dce7f3;
+  border-radius: 14px;
+  padding: 14px 16px;
+}
+
+.keys-resumo strong {
+  font-size: 20px;
+  color: #001f3f;
+}
+
+.keys-resumo span {
+  color: #455a70;
+}
+
+/* Busca */
+#tab-extrator-chaves label.full {
+  display: block;
+  width: 100%;
+  font-weight: 700;
+  color: #17324d;
+}
+
+#buscaGlobalChaves {
+  width: 100%;
+  height: 42px;
+  margin-top: 6px;
+  border: 1px solid #cfdbe8;
+  border-radius: 10px;
+  padding: 0 14px;
+  outline: none;
+}
+
+#buscaGlobalChaves:focus {
+  border-color: #15b7f1;
+  box-shadow: 0 0 0 3px rgba(21, 183, 241, 0.14);
+}
+
+/* Wrapper das tabelas */
+.keys-table-wrap {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  border: 1px solid #dce7f3;
+  border-radius: 14px;
+  box-shadow: 0 10px 24px rgba(15, 76, 129, 0.08);
+  margin-bottom: 28px;
+}
+
+/* Tabulator */
+#gridChaves,
+#gridSaltos {
+  min-width: 100%;
+}
+
+#tab-extrator-chaves .tabulator {
+  width: 100% !important;
+  min-width: 980px;
+  border: 0 !important;
+  font-family: Poppins, Arial, sans-serif;
+}
+
+/* Cabeçalho */
+#tab-extrator-chaves .tabulator-header {
+  background: #f2f7fc !important;
+  border-bottom: 1px solid #d5e2ef !important;
+}
+
+#tab-extrator-chaves .tabulator-col {
+  background: #f2f7fc !important;
+  border-right: 1px solid #d5e2ef !important;
+}
+
+#tab-extrator-chaves .tabulator-col-title {
+  font-size: 12px;
+  font-weight: 800;
+  color: #17324d;
+}
+
+/* Filtros */
+#tab-extrator-chaves .tabulator-header-filter input {
+  height: 32px;
+  border: 1px solid #cbd8e6;
+  border-radius: 8px;
+  background: #ffffff;
+  padding: 5px 8px;
+  font-size: 12px;
+  outline: none;
+}
+
+#tab-extrator-chaves .tabulator-header-filter input:focus {
+  border-color: #15b7f1;
+  box-shadow: 0 0 0 3px rgba(21, 183, 241, 0.14);
+}
+
+/* Linhas e células */
+#tab-extrator-chaves .tabulator-row {
+  min-height: 34px;
+  border-bottom: 1px solid #edf3f8;
+}
+
+#tab-extrator-chaves .tabulator-row:nth-child(even) {
+  background: #f8fbff !important;
+}
+
+#tab-extrator-chaves .tabulator-row:hover {
+  background: #eaf7ff !important;
+}
+
+#tab-extrator-chaves .tabulator-cell {
+  padding: 8px 8px;
+  font-size: 12px;
+  color: #25384d;
+  border-right: 1px solid #edf3f8;
+}
+
+/* Footer / paginação */
+#tab-extrator-chaves .tabulator-footer {
+  background: #f7fafc !important;
+  border-top: 1px solid #d5e2ef !important;
+  padding: 12px 14px;
+}
+
+#tab-extrator-chaves .tabulator-page,
+#tab-extrator-chaves .tabulator-page-size {
+  border: 1px solid #cfdbe8 !important;
+  border-radius: 8px !important;
+  background: #ffffff !important;
+  font-weight: 700;
+}
+
+/* Status */
+#tab-extrator-chaves .tabulator-cell[tabulator-field="status"] {
+  font-weight: 800;
+}
+
+/* Responsivo */
+@media (max-width: 1366px) {
+  #tab-extrator-chaves .form-card {
+    padding: 22px;
+  }
+
+  .keys-resumo {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  #tab-extrator-chaves .actions {
+    justify-content: flex-start;
+  }
+}
+/* =========================================================
+   CORREÇÃO RESPONSIVA DO EXTRATOR
+========================================================= */
+
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.app-layout,
+.app-main,
+.app-content,
+.app-tab,
+#tab-extrator-chaves {
+  min-width: 0;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+#tab-extrator-chaves .form-card,
+#tab-extrator-chaves .extrator-card {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  overflow: hidden;
+}
+
+/* Botões não podem empurrar a página */
+#tab-extrator-chaves .actions {
+  width: 100%;
+  max-width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  flex-wrap: wrap;
+  overflow: hidden;
+}
+
+#tab-extrator-chaves .actions button {
+  flex: 0 1 auto;
+  max-width: 100%;
+}
+
+/* Tabela rola dentro dela, não na página inteira */
+.keys-table-wrap {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  border-radius: 14px;
+}
+
+/* Tabulator fica grande internamente, mas preso ao wrapper */
+#tab-extrator-chaves .tabulator {
+  width: 100% !important;
+  min-width: 1150px;
+  max-width: none !important;
+}
+
+/* Impede o grid de aumentar a página */
+#gridChaves,
+#gridSaltos {
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+}
+.tabulator .tabulator-cell {
+  font-size: 10.5px;
+  padding: 5px 5px;
+}
+
+.tabulator .tabulator-col-title {
+  font-size: 10.5px;
+  font-weight: 800;
+}
+
+.tabulator .tabulator-header-filter input {
+  height: 27px;
+  font-size: 10px;
+}
+
+.af-status-ok {
+  color: #0f9d58;
+  font-weight: 700;
+}
+
+.af-status-alerta {
+  color: #dc2626;
+  font-weight: 700;
+}
+
+.af-chave-link {
+  color: #0f4c81;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.af-chave-link:hover {
+  text-decoration: underline;
+}
+
+
+.dfe-checks {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px 18px;
+  margin: 18px 0;
+}
+
+.dfe-checks label {
+  background: #f8fbff;
+  border: 1px solid #dce7f3;
+  border-radius: 12px;
+  padding: 10px 12px;
+  font-weight: 700;
+}
+
+.dfe-v2-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.dfe-v2-linha {
+  display: grid;
+  grid-template-columns: 50px repeat(5, 1fr) 110px 80px;
+  gap: 8px;
+  align-items: center;
+  background: #ffffff;
+  border: 1px solid #dce7f3;
+  border-radius: 12px;
+  padding: 10px 12px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.dfe-v2-linha:hover {
+  background: #f0f9ff;
+}
+
+.dfe-v2-linha strong {
+  color: #001f3f;
+  font-size: 14px;
+}
+
+.dfe-v2-linha em {
+  font-style: normal;
+  font-weight: 800;
+  color: #0f9d58;
+}
+.calculadora-dfe-card {
+  padding: 26px 32px;
+}
+
+.calculadora-topo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 18px;
+}
+
+.calculadora-topo h2 {
+  margin: 0;
+}
+
+.calculadora-topo p {
+  margin: 4px 0 0;
+  color: #52637a;
+  font-size: 14px;
+}
+
+.lista-calculos-dfe {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.calculo-dfe-item {
+  background: #f8fafc;
+  border: 1px solid #dbe3ef;
+  border-radius: 12px;
+  padding: 12px;
+}
+
+.calculo-dfe-grid {
+  display: grid;
+  grid-template-columns: 120px 150px 130px 150px 150px 100px;
+  gap: 10px;
+  align-items: end;
+}
+
+.calculo-dfe-grid label {
+  font-size: 12px;
+  font-weight: 700;
+  color: #001b3d;
+}
+
+.calculo-dfe-grid input,
+.calculo-dfe-grid select {
+  height: 36px;
+  margin-top: 4px;
+}
+
+.calculadora-dfe-resumo {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr 1.4fr;
+  gap: 14px;
+  margin-top: 14px;
+}
+
+.calculadora-dfe-textos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-top: 14px;
+}
+
+.resultado-download {
+  background: #f8fafc;
+  border: 1px solid #dbe3ef;
+  border-radius: 12px;
+  padding: 16px;
+  margin: 0;
+}
+
+.resultado-download h3 {
+  margin: 0 0 10px;
+  font-size: 18px;
+}
+
+.resultado-download p {
+  margin: 7px 0;
+  color: #52637a;
+}
+
+.resultado-download textarea {
+  width: 100%;
+  min-height: 92px;
+  resize: vertical;
+}
+
+.destaque-total strong {
+  display: block;
+  margin-top: 8px;
+  font-size: 26px;
+  color: #0077cc;
+}
+
+.acoes-download {
+  display: flex;
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.btn-azul,
+.btn-verde,
+.btn-remover-calculo {
+  border: 0;
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.btn-azul {
+  background: #00aeef;
+  color: #001b3d;
+}
+
+.btn-verde {
+  background: #16a34a;
+  color: #fff;
+}
+
+.btn-remover-calculo {
+  background: #fee2e2;
+  color: #991b1b;
+  height: 36px;
+}
+
+@media (max-width: 1200px) {
+  .calculo-dfe-grid,
+  .calculadora-dfe-resumo,
+  .calculadora-dfe-textos {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+/* =========================================================
+   TABELA FUNCIONALIDADES - PLANOS / INVESTIMENTO
+========================================================= */
+
+.tabela-funcionalidades-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  margin-top: 22px;
+  border: 1px solid #d8e5f2;
+  border-radius: 12px;
+  background: #ffffff;
+}
+
+.tabela-funcionalidades {
+  width: 100%;
+  min-width: 1320px;
+  border-collapse: collapse;
+  table-layout: fixed;
+  font-size: 12px;
+}
+
+.tabela-funcionalidades th,
+.tabela-funcionalidades td {
+  padding: 6px 5px;
+  border-bottom: 1px solid #d8e5f2;
+  vertical-align: middle;
+}
+
+.tabela-funcionalidades thead th {
+  background: #f3f8fd;
+  color: #002c4b;
+  font-weight: 800;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.tabela-funcionalidades thead tr:first-child th {
+  border-bottom: 1px solid #b8cce0;
+}
+
+.tabela-funcionalidades tbody tr:nth-child(even) {
+  background: #fbfdff;
+}
+
+.tabela-funcionalidades tbody tr:hover {
+  background: #eef7ff;
+}
+
+/* Ordem */
+.tabela-funcionalidades th:nth-child(1),
+.tabela-funcionalidades td:nth-child(1) {
+  width: 70px;
+  text-align: center;
+}
+
+/* Funcionalidade */
+.tabela-funcionalidades th:nth-child(2),
+.tabela-funcionalidades td:nth-child(2) {
+  width: 560px;
+}
+
+/* Categoria */
+.tabela-funcionalidades th:nth-child(3),
+.tabela-funcionalidades td:nth-child(3) {
+  width: 210px;
+}
+
+/* Colunas F / I */
+.tabela-funcionalidades th:nth-child(n+4),
+.tabela-funcionalidades td:nth-child(n+4) {
+  width: 44px;
+  text-align: center;
+  padding-left: 2px;
+  padding-right: 2px;
+}
+
+/* Separadores dos grupos de plano */
+.tabela-funcionalidades th:nth-child(4),
+.tabela-funcionalidades td:nth-child(4),
+.tabela-funcionalidades th:nth-child(6),
+.tabela-funcionalidades td:nth-child(6),
+.tabela-funcionalidades th:nth-child(8),
+.tabela-funcionalidades td:nth-child(8) {
+  border-left: 3px solid #8eacc8;
+}
+
+.tabela-funcionalidades th:nth-child(5),
+.tabela-funcionalidades td:nth-child(5),
+.tabela-funcionalidades th:nth-child(7),
+.tabela-funcionalidades td:nth-child(7),
+.tabela-funcionalidades th:nth-child(9),
+.tabela-funcionalidades td:nth-child(9) {
+  border-right: 3px solid #8eacc8;
+}
+
+/* Cabeçalho agrupado dos planos */
+.tabela-funcionalidades thead tr:first-child th[colspan="2"] {
+  background: #e8f2fb;
+  border-left: 3px solid #8eacc8;
+  border-right: 3px solid #8eacc8;
+  border-top: 1px solid #c2d5e8;
+}
+
+.tabela-funcionalidades thead tr:nth-child(2) th {
+  font-size: 11px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+/* Inputs */
+.tabela-funcionalidades input[type="text"],
+.tabela-funcionalidades select {
+  width: 100%;
+  height: 28px;
+  border: 1px solid #bfd0e2;
+  border-radius: 8px;
+  padding: 0 8px;
+  font-size: 12px;
+  color: #002c4b;
+  background: #ffffff;
+  box-sizing: border-box;
+}
+
+.tabela-funcionalidades input[type="text"]:focus,
+.tabela-funcionalidades select:focus {
+  outline: none;
+  border-color: #00a7e1;
+  box-shadow: 0 0 0 2px rgba(0, 167, 225, 0.15);
+}
+
+.tabela-funcionalidades input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  margin: 0;
+  accent-color: #007bff;
+}
+
+/* Botões da aba */
+#tab-funcionalidades button {
+  border: none;
+  border-radius: 8px;
+  padding: 10px 14px;
+  background: #00a7e1;
+  color: #ffffff;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+#tab-funcionalidades button:hover {
+  background: #008fc0;
+}

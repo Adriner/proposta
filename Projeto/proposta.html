@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head><meta charset="utf-8">
+  
+
+  <title>Proposta Comercial Fiscal.io</title>
+  <link rel="stylesheet" href="css/proposta.css?v=45">
+</head>
+
+<body>
+
+  <!-- PÁGINA 1 - CAPA -->
+<section class="pagina capa">
+  <div class="capa-topo">
+    <img src="assets/bg-capa-azul.png" class="capa-bg" alt="">
+    <img src="assets/logo-fiscalio-monitor.png" class="logo-fiscalio" alt="Fiscal.io Monitor">
+    <img src="assets/notebook-capa.png" class="notebook-capa" alt="">
+
+    <div class="texto-proposta">
+      <span></span>
+      <p>Proposta Comercial</p>
+    </div>
+  </div>
+
+  <div class="qr-proposta">
+
+  <div class="qr-proposta-img">
+    <img src="assets/qrcode-adriner-fr.png" alt="QR Code">
+  </div>
+
+  <div class="qr-proposta-info">
+    <strong>Saiba mais</strong>
+
+    <span>
+      Veja todas as funcionalidades
+      deste plano
+    </span>
+
+    <small>
+      Plano
+      <span data-campo="planoNome"></span>
+    </small>
+  </div>
+
+</div>
+  
+  <img src="assets/barra-capa.png" class="barra-capa" alt="">
+
+  <div class="capa-rodape">
+    <div class="titulo-plano">
+      <h1>
+        Fiscal.io Monitor -
+        <span data-campo="planoNome"></span>
+      </h1>
+      <p>Automação total na gestão de documentos fiscais</p>
+    </div>
+
+    <div class="box-cliente">
+      <div class="logo-cliente" id="logoClienteBox">
+        <span id="logoClienteTexto">CLIENTE</span>
+        <img id="logoClienteImagem" class="logo-cliente-img" alt="Logo do cliente">
+      </div>
+
+      <div class="faixa-proposta">
+        Proposta
+        <span data-campo="numero"></span>
+        |
+        <span data-campo="versao"></span>
+        |
+        <span data-campo="dataFormatada"></span>
+      </div>
+    </div>
+  </div>
+</section>
+  
+  
+  
+  
+  <!-- PÁGINA 2 - APRESENTAÇÃO -->
+<section class="pagina apresentacao apresentacao-ppt">
+
+  <div class="apresentacao-visual-css">
+    <span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span>
+  </div>
+
+  <div class="apresentacao-texto">
+
+    <p class="apresentacao-contato">
+      <span data-campo="contato"></span>;
+    </p>
+
+    <p>
+      Atendendo a sua solicitação, a Fiscal.io apresenta sua proposta
+      para a instalação do Fiscal.io Monitor para a
+      <span data-campo="empresa"></span>
+      de forma a atender adequadamente às suas necessidades de
+      monitoramento e download de documentos enviados às suas empresas
+      cadastradas no sistema.
+    </p>
+
+    <p>
+      Agradecemos de antemão o interesse pelos nossos serviços e ficamos
+      à disposição para colaborarmos no que for possível para que as
+      necessidades sejam sanadas em sua totalidade, iniciando uma sadia parceria.
+    </p>
+
+    <p>Atenciosamente,</p>
+
+    <div class="assinatura-ppt">
+
+      <div class="assinatura-imagens">
+        <img
+  id="fotoConsultor"
+  class="foto-vendedor"
+  alt="Consultor">
+            
+
+        <img src="assets/logo-fiscalio.azul.png"
+             class="logo-assinatura"
+             alt="Fiscal.io">
+      </div>
+
+      <div class="assinatura-dados-ppt">
+        <strong data-campo="consultorNome"></strong>
+
+        <span data-campo="consultorCargo"></span>
+
+        <p>
+          <span data-campo="consultorTelefone"></span> ☎<br>
+          <span data-campo="consultorWhatsApp"></span> ⓦ<br>
+          <span data-campo="consultorEmail"></span>
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+
+<footer class="rodape-pagina">
+  <span>
+    Proposta |
+    <span data-campo="numero"></span>
+    -
+    <span data-campo="empresa"></span>
+    -
+    <span data-campo="planoNome"></span>
+  </span>
+
+  <span>
+    Fiscal.io Tecnologia da Informação Ltda.
+  </span>
+</footer>
+
+<div class="pagina-numero">2</div>
+
+</section>
+  <!-- PÁGINA 3 - DIAGNÓSTICO E SOLUÇÃO -->
+  <section class="pagina diagnostico">
+    <div class="pagina-header">
+      <div class="pagina-titulo">
+        Diagnóstico e Solução Fiscal.io
+      </div>
+    </div>
+
+    <div class="diagnostico-grid">
+
+      <div class="diagnostico-card">
+        <span class="diagnostico-label">Cliente</span>
+        <h2 data-campo="empresa"></h2>
+
+        <div class="diagnostico-bloco">
+          <h3>Contato principal</h3>
+          <p data-campo="contato"></p>
+        </div>
+
+        <div class="diagnostico-bloco">
+          <h3>Participantes da reunião</h3>
+          <div id="participantesProposta" class="lista-texto"></div>
+        </div>
+      </div>
+
+      <div class="diagnostico-card destaque">
+        <span class="diagnostico-label">Levantamento comercial</span>
+        <h2>Necessidades identificadas</h2>
+        <div id="necessidadesProposta" class="lista-diagnostico"></div>
+      </div>
+
+      <div class="diagnostico-card solucao-card">
+        <span class="diagnostico-label">Solução recomendada</span>
+        <h2>
+          Fiscal.io Monitor
+          <span data-campo="planoNome"></span>
+        </h2>
+
+        <p id="textoSolucao"></p>
+
+        <div class="mini-beneficios">
+          <div>
+            <strong>XML</strong>
+            <span>Captura e organização</span>
+          </div>
+
+          <div>
+            <strong>SEFAZ</strong>
+            <span>Monitoramento fiscal</span>
+          </div>
+
+          <div>
+            <strong>SPED</strong>
+            <span>Auditoria e conformidade</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+   <footer class="rodape-pagina">
+  <span>
+    Proposta |
+    <span data-campo="numero"></span>
+    -
+    <span data-campo="empresa"></span>
+    -
+    <span data-campo="planoNome"></span>
+  </span>
+
+  <span>
+    Fiscal.io Tecnologia da Informação Ltda.
+  </span>
+</footer>
+
+<div class="pagina-numero">3</div>
+  </section>
+
+  <!-- PÁGINA 4 - FUNCIONALIDADES DO PLANO -->
+  <section class="pagina funcionalidades-html">
+
+    <div class="func-faixa-lateral">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <div class="funcionalidades-header">
+      <h1>
+        Funcionalidades Plano
+        <span data-campo="planoNome"></span>
+      </h1>
+    </div>
+
+    <div class="funcionalidades-grid" id="funcionalidadesGrid">
+      <!-- Renderizado via proposta.js -->
+    </div>
+
+    <footer class="rodape-pagina">
+  <span>
+    Proposta |
+    <span data-campo="numero"></span>
+    -
+    <span data-campo="empresa"></span>
+    -
+    <span data-campo="planoNome"></span>
+  </span>
+
+  <span>
+    Fiscal.io Tecnologia da Informação Ltda.
+  </span>
+</footer>
+
+<div class="pagina-numero">4</div>
+
+  </section>
+
+  <!-- PÁGINA 5 - INVESTIMENTO -->
+  <section class="pagina investimento">
+    <div class="pagina-header">
+      <div class="pagina-titulo">
+        Investimento Plano
+        <span data-campo="planoNome"></span>
+      </div>
+    </div>
+
+    <div class="investimento-grid">
+
+      <div class="investimento-esquerda">
+        <h3>Este investimento contempla:</h3>
+        <ul id="listaEscopo"></ul>
+
+        <div class="bloco-premissas">
+          <h3>Premissas:</h3>
+          <ul id="listaPremissas"></ul>
+        </div>
+      </div>
+
+      <div class="investimento-centro">
+        <div id="blocoInvestimento"></div>
+      </div>
+
+      <div class="investimento-direita">
+        <div class="bloco-observacoes">
+          <h3>Observações:</h3>
+          <ul id="listaObservacoes"></ul>
+        </div>
+      </div>
+
+    </div>
+
+    <footer class="rodape-pagina">
+  <span>
+    Proposta |
+    <span data-campo="numero"></span>
+    -
+    <span data-campo="empresa"></span>
+    -
+    <span data-campo="planoNome"></span>
+  </span>
+
+  <span>
+    Fiscal.io Tecnologia da Informação Ltda.
+  </span>
+</footer>
+
+<div class="pagina-numero">5</div>
+
+</section>
+
+<script src="js/proposta.js?v=51"></script>
+
+    
+</body>
+</html>
